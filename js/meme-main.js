@@ -3,7 +3,6 @@
 
 function init() {
     renderImgs()
-
 }
 
 
@@ -26,7 +25,7 @@ function onSearchByKeywords() {
 }
 
 function onSelectImg(){
-    console.log('i am dbd clicked', imgUrl)
+    console.log('select img clicked', imgUrl)
 
 }
 
@@ -34,7 +33,7 @@ function onSelectImg(){
 
 
 function onImgDblClicked(imgUrl){
-    console.log('i am dbd clicked', imgUrl)
+    console.log('dbd clicked', imgUrl)
     saveToStorage('img', imgUrl)
     window.location.replace( "editor.html")
 }
@@ -49,7 +48,6 @@ function onImgClicked(img ,imgUrl) {
     img.classList.toggle('selectImg');
     gPrevSelectImg = img
     saveToStorage('img', imgUrl)
-    saveToStorage('vv', img.id)
 
     
 }
