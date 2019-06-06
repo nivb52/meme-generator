@@ -23,6 +23,7 @@ function onSearchByKeywords() {
 // console.log(currImgs)
     return currImgs
 }
+
 function onSelectImg(){
     console.log('select img clicked', imgUrl)
 
@@ -35,6 +36,7 @@ function onImgDblClicked(imgUrl){
 }
 
 var prevSelectImg;
+
 
 function onImgClicked(img) {
     
