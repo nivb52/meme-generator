@@ -59,6 +59,7 @@ button {
 }
 
 button:hover {
+  cursor: pointer;
   color: #8833aa;
   border-color: currentColor;
   background-color: white;
@@ -85,6 +86,8 @@ input.search {
 
 #my-canvas {
   border: 1px solid #000000;
+  width: 50%;
+  margin-top: 20px;
 }
 
 /* CLASS  */
@@ -100,12 +103,32 @@ input.search {
 }
 .second-container{
   display: flex;
+}
+  
+
+
+.third-container{
+  width: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  height: 250px;
+  
+}
+.button-container{
+  display: flex;
+  margin-bottom: 30px;
 
 }
+.button-container >button{
+  margin: 0 0.1rem;
+}
+
 
 .meme-fields.meme-text-fields {
+  margin-top: 20px;
+  margin-bottom: 5px;
   background-color: #c7c2c2;
   border: 1px solid #8833aa;
   resize: vertical;
@@ -113,7 +136,8 @@ input.search {
   text-align: center;
   font-size: 2.5rem;
   line-height: 1.2;
-  height: 55px;
+  height: 50px;
+  width: 500px;
   color: #fff;
   font-family: impact, sans-serif;
   text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
@@ -159,3 +183,7 @@ select {
 .segoe-UI{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+#size{
+  margin-top: 7px;
+}
+

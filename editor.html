@@ -25,39 +25,60 @@
             <button onclick="" class="button">Back to gallery</button>
         </a>
     </div>
-
-    <canvas onclick="draw(event)" width="500" id="my-canvas" height="500" style="cursor: crosshair;">
-        Update your browser to enjoy canvas!
-    </canvas>
-
     <div class="second-container">
-        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
-            onInput="getTextVal()" value=""></textarea>
-        <button><i class="fas fa-plus"></i></button>
-        <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
-        <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
-        <select onchange="getfontSize(this.value)">
-            <option>font</option>
-            <option class="impact" value="impact"> Impact</option>
-            <option class="courier-New" value="courier-New">Courier-New</option>
-            <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
-        </select>
+        <canvas onclick="draw(event)" width="500" id="my-canvas" height="500" style="cursor: crosshair;">
+            Update your browser to enjoy canvas!
+        </canvas>
+        <div class="third-container">
+            <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
+                onInput="getTextVal()"  onkeydown="isDelete(event)" value=""></textarea>
+            <div class="button-container">
+                <button><i class="fas fa-plus"></i></button>
+                <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
+                <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
+                <select onchange="getfontSize(this.value)">
+                    <option>font</option>
+                    <option class="impact" value="impact"> Impact</option>
+                    <option class="courier-New" value="courier-New">Courier-New</option>
+                    <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
+                </select>
+                <input type="range" id="font-size" name="font-size" min="1" max="30" value="16"
+                    onchange="selectSize(this.value);" />
+                <span id="size">16</span>
+                <button><i class="fas fa-align-left"></i></button>
+                <button><i class="fas fa-align-justify"></i></button>
+                <button><i class="fas fa-align-right"></i></button>
+            </div>
 
-        <input type="range" id="font-size" name="font-size" min="1" max="30" value="16"
-            onchange="selectSize(this.value);" />
-        <span id="size">16</span>
-        <button><i class="fas fa-align-left"></i></button>
-        <button><i class="fas fa-align-justify"></i></button>
-        <button><i class="fas fa-align-right"></i></button>
+            <textarea name="bottom-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="255"
+                onInput="getTextVal(1)" onkeydown="isDelete(event)" value=""></textarea>
+            <div class="button-container">
+                <button><i class="fas fa-plus"></i></button>
+                <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
+                <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
+                <select onchange="getfontSize(this.value)">
+                    <option>font</option>
+                    <option class="impact" value="impact"> Impact</option>
+                    <option class="courier-New" value="courier-New">Courier-New</option>
+                    <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
+                </select>
+                <input type="range" id="font-size" name="font-size" min="1" max="30" value="16"
+                    onchange="selectSize(this.value);" />
+                <span id="size">16</span>
+                <button><i class="fas fa-align-left"></i></button>
+                <button><i class="fas fa-align-justify"></i></button>
+                <button><i class="fas fa-align-right"></i></button>
+            </div>
+        </div>
 
     </div>
-
     <div>
         <img id="img-id" src="" style="max-height: 1px; max-width: 1px;">
     </div>
 
-    <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
-        onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
+   
+          
+
 
 
     <script src="js/util.js"></script>
