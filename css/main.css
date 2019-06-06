@@ -9,12 +9,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
-/* MAIN ISSUE */
-
-#my-canvas {
-  border: 1px solid #000000;
-}
-
 /* BASE */
 
 h1 {
@@ -42,13 +36,6 @@ h1.deepshadow {
   text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
 }
 
-.serching{
-  margin-top: 15px;
-  text-align: center;
-  justify-items: center;
-  align-items: center
-}
-
 a {
   text-decoration-line: none;
   color: white;
@@ -57,17 +44,34 @@ a {
 button {
   background-color: purple;
   color: white;
-  /* padding: 1em; */
-  width: 50px;
-  height: 35px;
+  padding: 1em;
+  min-width: 50px;
+  /* height: 35px; */
 }
 
-input.search{
+img {
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
+  align-content: flex-start;
+}
+
+.img:hover {
+  cursor: pointer;
+}
+
+input.search {
   height: 35px;
   width: 200px;
   text-align: center;
-
 }
+
+/* MAIN ISSUE */
+
+#my-canvas {
+  border: 1px solid #000000;
+}
+
 /* CLASS  */
 
 .main-container {
@@ -80,27 +84,23 @@ input.search{
   background-color: rgb(163, 163, 228)
 }
 
-img {
-  width: 200px;
-  height: 200px;
-  margin: 10px 10px;
-  align-content: flex-start;
+.meme-fields.meme-text-fields {
+  background-color: #9c9c9c;
+  resize: vertical;
+  overflow-y: hidden;
+  text-align: center;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  /* height: 60px; */
+  text-transform: uppercase;
+  color: #fff;
+  font-family: impact, sans-serif;
+  text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
 
-.img:hover{
-  cursor: pointer;
+.searching {
+  margin-top: 15px;
+  text-align: center;
+  justify-items: center;
+  align-items: center
 }
-  .meme-fields.meme-text-fields {
-    background-color: #9c9c9c;
-    resize: vertical;
-    overflow-y: hidden;
-    text-align: center;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    /* height: 60px; */
-    text-transform: uppercase;
-    color: #fff;
-    font-family: impact,sans-serif;
-    text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
-}
-
