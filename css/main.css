@@ -1,3 +1,9 @@
+
+/* @font-face {
+  font-family: Lato;
+  src: url('../font/Lato-Regular.ttf');
+} */
+
 /* CLEAR */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -42,7 +48,7 @@ a {
 }
 
 button {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   padding: 1em;
   border: solid 1px transparent;
   border-radius: 4px;
@@ -90,17 +96,24 @@ input.search {
   /* align-content: center; */
   justify-content: center;
   flex-wrap: wrap;
-  background-color: rgb(163, 163, 228)
+  /* background-color: rgb(163, 163, 228) */
+}
+.second-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .meme-fields.meme-text-fields {
-  background-color: #9c9c9c;
+  background-color: #c7c2c2;
+  border: 1px solid #8833aa;
   resize: vertical;
   overflow-y: hidden;
   text-align: center;
   font-size: 2.5rem;
   line-height: 1.2;
-  /* height: 60px; */
+  height: 55px;
   text-transform: uppercase;
   color: #fff;
   font-family: impact, sans-serif;
@@ -116,4 +129,34 @@ input.search {
 
 .selectImg {
   border: 1px solid black
+}
+.select-color{
+  height: 30px;
+background-color:  #8833aa;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+
+select {
+  font-size: 16px;
+  height: 30px;
+  height: 33px;
+  width: 63px;
+  margin-left: 10px;
+  border: 5px solid #8833aa;
+
+}
+
+.impact{
+  font-size: 16px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.courier-New{
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.segoe-UI{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }

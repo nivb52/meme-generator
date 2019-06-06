@@ -26,7 +26,33 @@ var gImgs = [{
     id: 6,
     url: 'img/12.jpg',
     keywords: ['man']
-}];
+}
+,{
+    id: 6,
+    url: 'img/003.jpg',
+    keywords: ['man']
+},{
+    id: 6,
+    url: 'img/004.jpg',
+    keywords: ['man']
+},{
+    id: 6,
+    url: 'img/005.jpg',
+    keywords: ['man']
+},{
+    id: 6,
+    url: 'img/006.jpg',
+    keywords: ['man']
+},{
+    id: 6,
+    url: 'img/img5.jpg',
+    keywords: ['man']
+},{
+    id: 6,
+    url: 'img/leo.jpg',
+    keywords: ['man']
+}
+];
 
 
 function getImgs() {

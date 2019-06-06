@@ -12,6 +12,9 @@ function init() {
     canvas.height = Math.max(window.innerHeight - 300,400)
 }
 
+function selectSize(newVal) {
+    document.getElementById("size").innerHTML = newVal;
+}
 function getColor() {
     let fillColor = document.querySelector('#fill-color').value
     return fillColor

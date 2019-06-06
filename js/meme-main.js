@@ -25,7 +25,6 @@ function onSearchByKeywords() {
 }
 
 function onSelectImg(){
-    console.log('select img clicked', imgUrl)
 
 }
 
