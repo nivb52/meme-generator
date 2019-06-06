@@ -5,12 +5,11 @@ let ctx
 let currElement = ''
 
 
-
 function init() {
     canvas = document.querySelector('#my-canvas');
     ctx = canvas.getContext('2d')
-    canvas.width = Math.max(window.innerWidth - 200,400)
-    canvas.height = Math.max(window.innerHeight - 300,400)
+    canvas.width = Math.max(window.innerWidth - 200, 400)
+    canvas.height = Math.max(window.innerHeight - 300, 400)
 }
 
 function getColor() {
@@ -20,7 +19,7 @@ function getColor() {
 
 function changeEl(elName) {
     // console.log(elName);
-    
+
     currElement = elName
 }
 
@@ -31,8 +30,8 @@ function draw(ev) {
         case 'line':
             drawLine(offsetX, offsetY)
             break;
-        default :
-        return
+        default:
+            return
     }
     // ctx.restore()
 }
@@ -42,7 +41,7 @@ function draw(ev) {
 function drawLine(x, y) {
     ctx.beginPath()
     ctx.lineTo(x, y)
-    ctx.lineTo(x + 50, y )
+    ctx.lineTo(x + 50, y)
     ctx.closePath()
     ctx.lineWidth = 1
     ctx.strokeStyle = getColor()
@@ -50,9 +49,9 @@ function drawLine(x, y) {
 }
 
 
-function drawChar(char,x,y) {
+function drawChar(char, x, y) {
     ctx.beginPath()
-    ctx.strokeText(char,x,y)
+    ctx.strokeText(char, x, y)
 }
 
 function downloadCanvas(elLink) {
@@ -70,7 +69,7 @@ function clearCanvas() {
     ctx.beginPath()
 }
 
-function drawText(txt, x= canvas.width/10,y =canvas.height/10) {
+function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor()
     ctx.font = "20px Arial";
@@ -83,12 +82,34 @@ function drawText(txt, x= canvas.width/10,y =canvas.height/10) {
 function drawImg() {
     const img = document.querySelector('#img-id');
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-    
+
 }
 
+const elText = document.querySelector('#text-position-top')
 function getTextVal() {
-    const elText = document.querySelector('#text-position-top')
-    let txt = elText.value 
+    // ctx.restore()
+    let txt = elText.value
+    console.log(txt);
     drawText(txt)
+    ctx.save()
 }
 
+
+function isDelete(ev) {
+    var KeyID = event.keyCode;
+    switch (KeyID) {
+        case 8:
+            // alert("backspace");
+             let txt = elText.value
+             drawText(txt)
+            // drawText(elText.value)
+            // text.slice
+            break;
+        case 46:
+            // alert("delete");
+            getTextVal()
+            break;
+        default:
+            break;
+    }
+}
