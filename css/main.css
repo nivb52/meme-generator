@@ -58,7 +58,9 @@ img {
 
 .img:hover {
   cursor: pointer;
+ 
 }
+
 
 input.search {
   height: 35px;
@@ -103,4 +105,8 @@ input.search {
   text-align: center;
   justify-items: center;
   align-items: center
+}
+
+.selectImg{
+  border: 1px solid black
 }
