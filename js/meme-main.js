@@ -63,3 +63,4 @@ function renderImgs() {
     document.querySelector('.main-container').innerHTML = htmlImg.join("")
 }
 
+
