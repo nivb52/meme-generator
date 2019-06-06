@@ -11,7 +11,7 @@ function onSerchByKeywords() {
     var imgs = getImgs()
     console.log(imgs)
     var keywordSerch = document.querySelector('.serch').value
-    var currimgs = imgs.forEach(function (img) {
+    var currimgs = imgs.filter(function (img) {
         var currKeyWord = img.keywords.filter(function (keyWord) {
             // console.log(keyWord)
             // console.log(keywordSerch)
@@ -21,9 +21,8 @@ function onSerchByKeywords() {
         console.log(currKeyWord)
         return currKeyWord
     })
-
-console.log(img.keyWord===currKeyWord)
-    return img.keyWord===currKeyWord
+console.log(currimgs)
+    return currimgs
 }
 
 
