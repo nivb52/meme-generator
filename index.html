@@ -5,33 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Canvas painting - Niv & Tamir</title>
+    <title>Meme</title>
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
-<body>
+<body onload="init()">
     <h1 class="deepshadow"> Meme Creator </h1>
+    <div class="serching">
+        <input type="text" class="serch" name="serch" placeholder="filter by keywords" list="keywords" />
+        <button onclick="onSerchByKeywords()"></button>
+    </div>
+
     <div class="main-container">
-
-        <div class="img">
-            <img src="img/1.jpg"/>
-        </div>
-        <div class="img">
-            <img src="img/1.jpg"/>
-        </div>
-        <div class="img">
-            <img src="img/1.jpg"/>
-        </div>
-        <div class="img">
-            <img src="img/1.jpg"/>
-        </div>
-        <div class="img">
-            <img src="img/1.jpg"/>
-        </div>
+    </div>
 
 
-</div>
-
+    <script src="js/util.js"></script>
+    <script src="js/service.js"></script>
     <script src="js/meme-main.js"></script>
 </body>
+
 </html>
