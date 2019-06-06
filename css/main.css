@@ -1,79 +1,81 @@
 /* CLEAR */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* MAIN ISSUE */
 
 #my-canvas {
-    border: 1px solid #000000;
+  border: 1px solid #000000;
 }
 
 /* BASE */
 
 h1 {
-    margin: 0 auto;
-    font-size: 2rem;
-    color: black;
-    background-color: bisque;
-    text-align: center;
-    width: 500px;
-    padding: 5px;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: black;
+  background-color: bisque;
+  text-align: center;
+  width: 500px;
+  padding: 5px;
 }
 
 h1 {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    text-rendering: optimizeLegibility;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
 }
 
 h1.deepshadow {
-    color: #e0dfdc;
-    background-color: #333;
-    letter-spacing: 0.1em;
-    text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+  color: #e0dfdc;
+  background-color: #333;
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
 }
 
 a {
-    text-decoration-line: none;
-    color: white;
+  text-decoration-line: none;
+  color: white;
 }
 
 button {
-    background-color: purple;
-    color: white;
-    padding: 1em;
+  background-color: purple;
+  color: white;
+  padding: 1em;
 }
 
 /* CLASS  */
 
 .main-container {
-    display: flex;
-    /* align-content: center; */
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  /* align-content: center; */
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+img {
+  width: 200px;
+  height: auto;
+}
 
 .img {
-  display: flex;
-  justify-content: center;
   margin: 0 10px;
-  /* align-content: flex-start; */
   /* width: 25%; */
+  /* display: flex; */
+  align-content: flex-start;
+  /* justify-content: center; */
 }
 
-
-
-
 /* UN USED IMPORTED */
-
 
 /*
   h1.elegantshadow {
