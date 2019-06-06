@@ -42,11 +42,20 @@ a {
 }
 
 button {
-  background-color: purple;
-  color: white;
+  margin: 0 1rem;
   padding: 1em;
-  min-width: 50px;
-  /* height: 35px; */
+  border: solid 1px transparent;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  color: #ffffff;
+  background-color: #8833aa;
+  outline: none;
+}
+
+button:hover {
+  color: #8833aa;
+  border-color: currentColor;
+  background-color: white;
 }
 
 img {
@@ -58,9 +67,7 @@ img {
 
 .img:hover {
   cursor: pointer;
- 
 }
-
 
 input.search {
   height: 35px;
@@ -107,6 +114,6 @@ input.search {
   align-items: center
 }
 
-.selectImg{
+.selectImg {
   border: 1px solid black
 }

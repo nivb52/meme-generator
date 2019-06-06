@@ -7,15 +7,15 @@ function init() {
 }
 
 
-function onSerchByKeywords() {
+function onSearchByKeywords() {
     var imgs = getImgs()
     console.log(imgs)
-    var keywordSerch = document.querySelector('.search').value
+    var keywordSearch = document.querySelector('.search').value
     var currimgs = imgs.filter(function (img) {
         var currKeyWord = img.keywords.filter(function (keyWord) {
             // console.log(keyWord)
             // console.log(keywordSerch)
-            return keyWord === keywordSerch
+            return keyWord === keywordSearch
         })
 
         console.log(currKeyWord)
