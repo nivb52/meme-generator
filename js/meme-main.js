@@ -11,18 +11,18 @@ function onSearchByKeywords() {
     var imgs = getImgs()
     console.log(imgs)
     var keywordSearch = document.querySelector('.search').value
-    var currimgs = imgs.filter(function (img) {
+    var currImgs = imgs.filter(function (img) {
         var currKeyWord = img.keywords.filter(function (keyWord) {
             // console.log(keyWord)
-            // console.log(keywordSerch)
+            // console.log(keywordSearch)
             return keyWord === keywordSearch
         })
 
         console.log(currKeyWord)
         return currKeyWord
     })
-// console.log(currimgs)
-    return currimgs
+// console.log(currImgs)
+    return currImgs
 }
 function onSelectImg(){
     console.log('i am dbd clicked', imgUrl)
