@@ -3,7 +3,6 @@
 
 function init() {
     renderImgs()
-
 }
 
 
@@ -25,13 +24,13 @@ function onSearchByKeywords() {
     return currImgs
 }
 function onSelectImg(){
-    console.log('i am dbd clicked', imgUrl)
+    console.log('select img clicked', imgUrl)
 
 }
 
 
 function onImgDblClicked(imgUrl){
-    console.log('i am dbd clicked', imgUrl)
+    console.log('dbd clicked', imgUrl)
     saveToStorage('img', imgUrl)
 }
 
@@ -40,13 +39,10 @@ var prevSelectImg;
 function onImgClicked(img) {
     
     if(prevSelectImg) prevSelectImg.classList.remove('selectImg')
-
-    
-    console.log('i am clicked', img)
-    img.classList.toggle('selectImg');
-    
+    console.log('clicked', img)
+    img.classList.toggle('selectImg');  
     prevSelectImg = img
-    
+
 }
 
 function renderImgs() {
