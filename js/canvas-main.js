@@ -3,7 +3,8 @@ let gCanvasEls = [] // our elements
 let canvas
 let ctx
 let currElement = ''
-const elText = document.querySelector('#text-position-top')
+const elTextTop = document.querySelector('#text-position-top')
+const elTextBottom = document.querySelector('#text-position-bottom')
 const img = document.querySelector('#img-id')
 
 function init() {
@@ -16,8 +17,13 @@ function init() {
     setTimeout(drawImg, 50)
 }
 
+function updateFontSize() {
+
+}
+
 function selectSize(newVal) {
-    document.getElementById("size").innerHTML = newVal;
+    document.getElementById("size").innerHTML = newVal
+    updateFontSize()        
 }
 
 function getColor() {
@@ -25,22 +31,29 @@ function getColor() {
     return fillColor
 }
 
-function changeEl(elName) {
-    currElement = elName
+function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
+
+    gCanvasEls.push(createEl(x, y))
+
+    ctx.fillStyle = getColor()
+    ctx.strokeStyle = getColor()
+    ctx.font = "20px Arial"; //getFont()
+    // let txt = getTextVal()
+    // ctx.fillText(txt, x, y); 
+    ctx.strokeText(txt, x, y);
 }
 
-function draw(ev) {
-    ctx.save()
-    const { offsetX, offsetY } = ev
-    switch (currElement) {
-        case 'line':
-            ev = 0; // 1 line for each press
-            drawLine(offsetX, offsetY)
-            break;
-        default:
-            findSelectedEl(offsetX, offsetY)
-            return
+function getTextVal(areaTextNum) {
+    let txt
+    if (areaTextNum === 1) {
+        txt = elTextBottom.value
+        drawText(txt, canvas.width/10 , canvas.height-50)
+    } else {
+        txt = elTextTop.value
+        drawText(txt)
     }
+
+    ctx.save()
 }
 
 
@@ -59,61 +72,18 @@ function findSelectedEl(x, y) {
 
 
 }
-
+// NOT IN USE
 function createEl(x, y) {
     return {
         x: x,
-        y: y
+        y: y, 
+        // isText: isText,
+        // text: text,
+        // isProps: isProps,
+        // prop: prop
     }
 }
 
-function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
-
-    gCanvasEls.push(createEl(x, y))
-
-    ctx.fillStyle = getColor()
-    ctx.strokeStyle = getColor()
-    ctx.font = "20px Arial"; //getFont()
-    // let txt = getTextVal()
-    // ctx.fillText(txt, x, y); 
-    ctx.strokeText(txt, x, y);
-}
-
-function getTextVal() {
-
-    let txt = elText.value
-    drawText(txt)
-    ctx.save()
-}
-
-
-function drawLine(x, y) {
-    ctx.beginPath()
-    ctx.lineTo(x, y)
-    ctx.lineTo(x + 50, y)
-    ctx.closePath()
-    ctx.lineWidth = 1
-    ctx.strokeStyle = getColor()
-    ctx.stroke();
-}
-
-
-
-function downloadCanvas(elLink) {
-    ctx.save()
-    ctx.restore()
-    const data = canvas.toDataURL('image/jpeg')
-    // const data = canvas.
-    console.log(data);
-    elLink.href = data
-    elLink.download = 'my-meme.jpg'
-}
-
-function clearCanvas() {
-    //IMG IS MUST, IF NOT USER CAN GO BACK TO GALLERY
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    drawImg()
-}
 
 
 function drawImg() {
@@ -129,9 +99,28 @@ function getAndCreateImg() {
         img.src = imgUrl
 
     } else {
-        clearCanvas()
+        
         alert('You did not pick an image you will be to redirect to gallery. if it is a mistake please report admin on about.html page')
         setTimeout(window.location.assign("index.html"), 3000)
+    }
+}
+
+
+function changeEl(elName) {
+    currElement = elName
+}
+
+function draw(ev) {
+    ctx.save()
+    const { offsetX, offsetY } = ev
+    switch (currElement) {
+        case 'line':
+            ev = 0; // 1 line for each press
+            drawLine(offsetX, offsetY)
+            break;
+        default:
+            findSelectedEl(offsetX, offsetY)
+            return
     }
 }
 
@@ -155,9 +144,35 @@ function deleteOneChar() {
     clearCanvas()
 }
 
+function clearCanvas() {
+    //IMG IS MUST, IF NOT USER CAN GO BACK TO GALLERY
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    drawImg()
+}
+
+function downloadCanvas(elLink) {
+    ctx.save()
+    ctx.restore()
+    const data = canvas.toDataURL('image/jpeg')
+    // const data = canvas.
+    console.log(data);
+    elLink.href = data
+    elLink.download = 'my-meme.jpg'
+}
+
+function drawLine(x, y) {
+    ctx.beginPath()
+    ctx.lineTo(x, y)
+    ctx.lineTo(x + 50, y)
+    ctx.closePath()
+    ctx.lineWidth = 1
+    ctx.strokeStyle = getColor()
+    ctx.stroke();
+}
+
 
 // NOT IN USE
-function drawAccessoryElement(char, x, y) {
+function addProps(char, x, y) {
     ctx.beginPath()
     ctx.strokeText(char, x, y)
 }

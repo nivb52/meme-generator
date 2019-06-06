@@ -32,7 +32,7 @@
 
     <div class="second-container">
         <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
-            onInput="getTextVal()" value=""></textarea>
+            onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
         <button><i class="fas fa-plus"></i></button>
         <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
         <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
@@ -56,8 +56,8 @@
         <img id="img-id" src="" style="max-height: 1px; max-width: 1px;">
     </div>
 
-    <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
-        onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
+    <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="255"
+        onInput="getTextVal(1)" onkeydown="isDelete(event)" value=""></textarea>
 
 
     <script src="js/util.js"></script>
