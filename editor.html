@@ -15,7 +15,6 @@
     <div class="main-container">
 
         <br>
-        <button onclick="changeEl()">🏴‍☠️</button>
         <button onclick="changeEl('line')">Line</button>
         <button onclick="drawImg()">IMG</button>
         <!-- Todo: share -->
@@ -54,13 +53,15 @@
     </div>
 
     <div>
-        <img id="img-id" src="img/leo.jpg" style="max-height: 1px; max-width: 1px;">
+        <img id="img-id" src="" style="max-height: 1px; max-width: 1px;">
     </div>
 
-
+    <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
+        onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
 
 
     <script src="js/util.js"></script>
+    <script src="js/service.js"></script>
     <script src="js/meme-main.js"></script>
     <script src="js/canvas-main.js"></script>
 </body>
