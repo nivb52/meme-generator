@@ -31,23 +31,26 @@ function onSelectImg(){
 }
 
 
+
+
 function onImgDblClicked(imgUrl){
     console.log('i am dbd clicked', imgUrl)
     saveToStorage('img', imgUrl)
+    window.location.replace( "editor.html")
 }
 
-var prevSelectImg;
 
+var gPrevSelectImg;
 
-function onImgClicked(img) {
+function onImgClicked(img ,imgUrl) {
     
-    if(prevSelectImg) prevSelectImg.classList.remove('selectImg')
-
-    
+    if(gPrevSelectImg) gPrevSelectImg.classList.remove('selectImg')
     console.log('i am clicked', img)
     img.classList.toggle('selectImg');
-    
-    prevSelectImg = img
+    gPrevSelectImg = img
+    saveToStorage('img', imgUrl)
+    saveToStorage('vv', img.id)
+
     
 }
 
@@ -56,9 +59,10 @@ function renderImgs() {
     console.log(imgs)
     var htmlImg = imgs.map(function (img) {
         return `<div  class="img img-${img.id} data">
-        <img ondblclick="onImgDblClicked('${img.url}')" onclick="onImgClicked(this)" src="${img.url}" />
+        <img ondblclick="onImgDblClicked('${img.url}')" onclick="onImgClicked(this,'${img.url}')" src="${img.url}" />
     </div>`
     });
 
     document.querySelector('.main-container').innerHTML = htmlImg.join("")
 }
+
