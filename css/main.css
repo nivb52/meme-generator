@@ -101,3 +101,19 @@ img {
     text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
   } 
   */
+
+
+  /*niv*/
+  .meme-fields.meme-text-fields {
+    background-color: #9c9c9c;
+    resize: vertical;
+    overflow-y: hidden;
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    /* height: 60px; */
+    text-transform: uppercase;
+    color: #fff;
+    font-family: impact,sans-serif;
+    text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}

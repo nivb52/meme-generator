@@ -5,47 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Canvas painting - Niv & Tamir</title>
+    <title>Meme Generator - Niv & Chen</title>
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body onload="init()">
-    <h1 class="deepshadow"> Painting Rush </h1>
+    <h1 class="deepshadow"> Meme Rush </h1>
     <div class="main-container">
 
         <br>
-        <!-- ▲ -->
-        <button onclick="changeEl('triangle')">&#9651;</button>
-        <button onclick="changeEl('square')">&#9647;</button>
-        <button onclick="changeEl('circle')">&#9711;</button>
-        <button onclick="changeEl('arc')">&#9696;</button>
-        <button onclick="changeEl('bird')">Birds</button>
+        <button onclick="changeEl()">🏴‍☠️</button>
         <button onclick="changeEl('line')">Line</button>
-        <input onclick="getColor()" id="fill-color" type="color" value="#ff0022">
+        <button onclick="drawImg()">IMG</button>
+        <input onclick="getColor()" id="fill-color" type="color" value="#f9f9f9">
         <!-- Todo: share -->
         <!-- <button class="button">Share</button> -->
-        <button><a href="#" onclick="downloadCanvas(this)" download="">Download</a></button>
+        <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>    
 
         <button onclick="clearCanvas()" class="button">Clear</button>
+        <a href="index.html">
+        <button onclick="" class="button">Back to gallery</button>
+    </a>
     </div>
-    <!-- <button class="button">About</button> -->
-    <!-- Inspiration  -->
-    <!-- <select>
-        <option id="0">SKETCHY</option>
-        <option id="1">SHADED</option>
-        <option id="2">CHROME</option>
-        <option id="3">FUR</option>
-        <option id="4">LONGFUR</option>
-        <option id="5">WEB</option>
-        <option id="7">SIMPLE</option>
-        <option id="9">RIBBON</option>
-        <option id="12">GRID</option>
-    </select> -->
+    
+    
+    <canvas onclick="draw(event)"
+    width="500" id="my-canvas" height="500" style="cursor: crosshair;">
+    Update your browser to enjoy canvas!
+</canvas>
+<div>
+    <img id="img-id" src="img/leo.jpg" style="max-height: 1px; max-width: 1px;">
+</div>
 
-    <canvas onmouseout="onStopDraw()" onmousedown="onStartDraw()" onmouseup="onStopDraw()" onmousemove="draw(event)"
-        width="500" id="my-canvas" height="500" style="cursor: crosshair;">
-        Update your browser to enjoy canvas!
-    </canvas>
+<textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255" onInput="getTextVal()" value=""></textarea>
 
     <script src="js/canvas-main.js"></script>
 </body>
