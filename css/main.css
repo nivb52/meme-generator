@@ -101,7 +101,7 @@ input.search {
   font-size: 2.5rem;
   line-height: 1.2;
   /* height: 60px; */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #fff;
   font-family: impact, sans-serif;
   text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
