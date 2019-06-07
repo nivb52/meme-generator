@@ -18,3 +18,16 @@ function makeId(length = 5) {
     }
     return txt;
 }
+
+
+
+function vh() {
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return (h) ;
+}
+
+function vw() {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth);
+    return (w);
+}
+
