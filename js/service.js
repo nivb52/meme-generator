@@ -65,6 +65,5 @@ function searchByKeyword(keyword) {
     const result = imgs.filter((word) => {
         return (word.keywords.indexOf(keyword) >= 0);
     });
-    console.log(' resualt' ,result);
-return result
+    return result
 }
