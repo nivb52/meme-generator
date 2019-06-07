@@ -1,6 +1,6 @@
 'use strict'
 let gMemes = [] // our elements
-let canvas
+const canvas = document.querySelector('#my-canvas');
 let ctx
 let currElement = ''
 const elTextTop = document.querySelector('#text-position-top')
@@ -12,10 +12,7 @@ let gFont = 'Ariel'
 
 function init() {
     getAndCreateImg()
-    canvas = document.querySelector('#my-canvas');
     ctx = canvas.getContext('2d')
-    //     canvas.width = window.innerWidth - 300;
-    //   canvas.height = window.innerHeight - 200;
     canvas.width = Math.max(window.innerWidth/2, 400)
     canvas.height = Math.max(window.innerHeight/2 , 400)
     clearCanvas()
