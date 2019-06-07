@@ -26,27 +26,27 @@ var gImgs = [{
     keywords: ['man']
 }
     , {
-    id: 6,
+    id: 7,
     url: '003.jpg',
     keywords: ['man']
 }, {
-    id: 6,
+    id: 8,
     url: '004.jpg',
     keywords: ['man']
 }, {
-    id: 6,
+    id: 9,
     url: '005.jpg',
     keywords: ['man']
 }, {
-    id: 6,
+    id: 10,
     url: '006.jpg',
     keywords: ['man']
 }, {
-    id: 6,
+    id: 11,
     url: 'img5.jpg',
     keywords: ['man']
 }, {
-    id: 6,
+    id: 12,
     url: 'leo.jpg',
     keywords: ['man']
 }

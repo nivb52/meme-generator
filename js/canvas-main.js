@@ -6,7 +6,7 @@ let currElement = ''
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 const img = document.querySelector('#img-id')
-let gFontSize = '30px';
+let gFontSize = '16px';
 let gFont = 'Ariel'
 
 
@@ -16,8 +16,8 @@ function init() {
     ctx = canvas.getContext('2d')
     //     canvas.width = window.innerWidth - 300;
     //   canvas.height = window.innerHeight - 200;
-    canvas.width = Math.max(window.innerWidth - 200, 300)
-    canvas.height = Math.max(window.innerHeight - 300, 400)
+    canvas.width = Math.max(window.innerWidth/2, 400)
+    canvas.height = Math.max(window.innerHeight/2 , 400)
     clearCanvas()
     setTimeout(drawImg, 75)
 }
