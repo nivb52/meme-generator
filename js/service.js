@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 var gImgs = [{
     id: 1,
     url: '19.jpg',
