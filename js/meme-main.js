@@ -1,5 +1,6 @@
 'use strict'
 
+// var gPrevSelectImg;
 
 function init() {
     renderImgs()
@@ -24,29 +25,17 @@ function onSearchByKeywords() {
     return currImgs
 }
 
-function onSelectImg(){
-
-}
 
 
-
-
-function onImgDblClicked(imgUrl){
-    console.log('dbd clicked', imgUrl)
-    saveToStorage('img', imgUrl)
-    window.location.replace( "editor.html")
-}
-
-
-var gPrevSelectImg;
 
 function onImgClicked(img ,imgUrl) {
     
-    if(gPrevSelectImg) gPrevSelectImg.classList.remove('selectImg')
-    console.log('i am clicked', img)
-    img.classList.toggle('selectImg');
-    gPrevSelectImg = img
+    // if(gPrevSelectImg) gPrevSelectImg.classList.remove('selectImg')
+    // console.log('i am clicked', img)
+    // img.classList.toggle('selectImg');
+    // gPrevSelectImg = img
     saveToStorage('img', imgUrl)
+    window.location.replace( "editor.html")
 
     
 }
@@ -56,7 +45,7 @@ function renderImgs() {
     console.log(imgs)
     var htmlImg = imgs.map(function (img) {
         return `<div  class="img img-${img.id} data">
-        <img ondblclick="onImgDblClicked('${img.url}')" onclick="onImgClicked(this,'${img.url}')" src="${img.url}" />
+        <img  onclick="onImgClicked(this,'${img.url}')" src="${img.url}" />
     </div>`
     });
 
