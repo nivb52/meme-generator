@@ -108,7 +108,7 @@ h1 {
   font-family: 'Pacifico', cursive;
   text-align: center;
   text-rendering: optimizeLegibility;
-  color: #e0dfdc;
+  color: #ececec; /*#e0dfdc;*/
   background-color: #0a0a0a;
   box-shadow: inset 0 -6px 0 #1e1e1e;
 }
