@@ -103,10 +103,8 @@ input.search {
   margin-top: 20px;
   display: flex;
   width: 100%;
-  /* align-content: center; */
   justify-content: center;
   flex-wrap: wrap;
-  /* background-color: rgb(163, 163, 228) */
 }
 .second-container{
   display: flex;
@@ -236,9 +234,17 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
    width: 100%;
  }
  .niv{
-
    width: 100%;
  }
 
+ .second-container{
+   flex-wrap: wrap
+ }
  
+ canvas{
+  width: 100%;
+ }
+ .third-container{
+   width: 100%;
+ }
 }
