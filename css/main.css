@@ -222,5 +222,23 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 .about-us p{
   color: #c7c2c2;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+
+@media (max-width:740px){
+  .about-us{
+    flex-wrap: wrap;
+    height: 380px;
+
+  }
+ .chen{
+   width: 100%;
+ }
+ .niv{
+
+   width: 100%;
+ }
+
+ 
 }
