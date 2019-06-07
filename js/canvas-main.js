@@ -1,5 +1,5 @@
 'use strict'
-let gCanvasEls = [] // our elements
+let gMemes = [] // our elements
 let canvas
 let ctx
 let currElement = ''
@@ -14,16 +14,18 @@ function init() {
     canvas.width = Math.max(window.innerWidth - 200, 400)
     canvas.height = Math.max(window.innerHeight - 300, 400)
     clearCanvas()
-    setTimeout(drawImg, 50)
+    setTimeout(drawImg, 75)
 }
 
-function updateFontSize() {
 
+
+function updateFontSize(size) {
+// TODO: update meme font size
 }
 
 function selectSize(newVal) {
     document.getElementById("size").innerHTML = newVal
-    updateFontSize()        
+    updateFontSize(newVal)        
 }
 
 function getColor() {
@@ -33,7 +35,7 @@ function getColor() {
 
 function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
 
-    gCanvasEls.push(createEl(x, y))
+    // gMemes.push(createEl(x, y))
 
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor()
@@ -57,40 +59,10 @@ function getTextVal(areaTextNum) {
 }
 
 
-// FIND THE SELECTED TEXT FOR DRAG AND DROP
-function findSelectedEl(x, y) {
-    console.log('x ', x)
-    console.log('y ', y)
-    // const clickedEl = gCanvasEls.find(el => {
-    //     // RETURN TRUE OR FALSE 
-    //     return (
-    //         el.x 
-
-    //     )
-    // })
-
-
-
-}
-// NOT IN USE
-function createEl(x, y) {
-    return {
-        x: x,
-        y: y, 
-        // isText: isText,
-        // text: text,
-        // isProps: isProps,
-        // prop: prop
-    }
-}
-
-
-
 function drawImg() {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
     // ctx.beginPath()
     // ctx.save()
-
 }
 
 function getAndCreateImg() {
@@ -175,4 +147,21 @@ function drawLine(x, y) {
 function addProps(char, x, y) {
     ctx.beginPath()
     ctx.strokeText(char, x, y)
+}
+
+
+// FIND THE SELECTED TEXT FOR DRAG AND DROP
+function findSelectedEl(x, y) {
+    console.log('x ', x)
+    console.log('y ', y)
+    // const clickedEl = gCanvasEls.find(el => {
+    //     // RETURN TRUE OR FALSE 
+    //     return (
+    //         el.x 
+
+    //     )
+    // })
+
+
+
 }
