@@ -31,7 +31,7 @@ function init() {
 
 function selectSize(newVal) {
     document.getElementById("size").innerHTML = newVal
-    gFontSize = `'${newVal}px'`
+    gFontSize = newVal+'px'
     console.log('gfontsize',gFontSize)
     // updateFontSize(newVal)     
     return newVal
