@@ -1,4 +1,3 @@
-
 /* @font-face {
   font-family: Lato;
   src: url('../font/Lato-Regular.ttf');
@@ -6,7 +5,87 @@
 
 /* CLEAR */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -17,22 +96,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /* BASE */
 
-body{
+body {
   background-color: #000;
 }
+
 h1 {
   margin: 0 auto;
   font-size: 2rem;
   padding: 5px;
   height: 70px;
-  font-family:'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   color: #e0dfdc;
   background-color: #333;
   letter-spacing: 0.em;
-    box-shadow: inset 0 -6px 0 #1e1e1e;
+  box-shadow: inset 0 -6px 0 #1e1e1e;
 }
 
 a {
@@ -69,14 +149,14 @@ img {
   border-radius: 15px;
   border: 2px solid rgb(54, 53, 53);
 
-  
+
 }
 
 .img:hover {
   cursor: pointer;
   transform: scale(1.3);
 
-  
+
 }
 
 input.search {
@@ -85,8 +165,8 @@ input.search {
   width: 300px;
   text-align: center;
   border-radius: 10px;
-    border: 1px solid black;
-    font-family: cursive;
+  border: 1px solid black;
+  font-family: cursive;
 }
 
 /* MAIN ISSUE */
@@ -106,27 +186,30 @@ input.search {
   justify-content: center;
   flex-wrap: wrap;
 }
-.second-container{
+
+.second-container {
   display: flex;
 }
-  
 
 
-.third-container{
+
+.third-container {
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   height: 250px;
-  
+
 }
-.button-container{
+
+.button-container {
   display: flex;
   margin-bottom: 30px;
 
 }
-.button-container >button{
+
+.button-container>button {
   margin: 0 0.1rem;
 }
 
@@ -157,32 +240,33 @@ input.search {
 
 
 
-.select-color{
+.select-color {
   height: 30px;
-background-color:  #8833aa;
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  background-color: #8833aa;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 
 
-.impact{
+.impact {
   font-size: 16px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.courier-New{
+.courier-New {
   font-size: 16px;
   font-family: 'Courier New', Courier, monospace;
 }
 
-.segoe-UI{
+.segoe-UI {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-#size{
+
+#size {
   margin-top: 7px;
 }
 
-.about-us{
+.about-us {
   text-align: center;
   padding: 5px;
   height: 200px;
@@ -193,58 +277,65 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
   align-items: center;
 }
 
-.about-us img{
+.about-us img {
   border-radius: 100px;
   height: 150px;
   width: 150px;
   border: 2px solid #c7c2c2;
- 
-  
+
+
 }
+
 .chen {
   display: flex;
   text-align: left;
   width: 50%;
 }
-.niv{
+
+.niv {
   display: flex;
   text-align: left;
   width: 50%;
 }
-.about-us h2{
+
+.about-us h2 {
   color: #c7c2c2;
   margin-top: 30px;
   font-family: fantasy;
   font-size: 1.3rem;
 }
-.about-us p{
+
+.about-us p {
   color: #c7c2c2;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8rem;
 }
 
 
-@media (max-width:740px){
-  .about-us{
+@media (max-width:740px) {
+  .about-us {
     flex-wrap: wrap;
     height: 380px;
 
   }
- .chen{
-   width: 100%;
- }
- .niv{
-   width: 100%;
- }
 
- .second-container{
-   flex-wrap: wrap
- }
- 
- canvas{
-  width: 100%;
- }
- .third-container{
-   width: 100%;
- }
+  .chen {
+    width: 100%;
+  }
+
+  .niv {
+    width: 100%;
+  }
+
+  .second-container {
+    flex-wrap: wrap
+  }
+
+  canvas {
+    width: 100%;
+  }
+
+  .third-container {
+    width: 100%;
+  }
 }

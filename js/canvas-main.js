@@ -68,6 +68,7 @@ function drawImg() {
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
         let imgUrl = loadFromStorage('img')
+        console.log('chen',imgUrl)
         img.src = imgUrl
 
     } else {
