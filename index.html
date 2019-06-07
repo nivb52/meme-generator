@@ -8,12 +8,30 @@
     <title>Meme</title>
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/btn-menu.css" />
 </head>
 
 <body onload="init()">
     <h1> Meme Creator </h1>
+
+    <nav id="bt-menu" class="bt-menu bt-menu-close">
+        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+        <ul>
+            <li><a href="#" title="פתח תפריט"> </a></li>
+            <li><a class="simple-ajax-popup" href="about-us.html">about-us</a></li>
+            <li><a href="#" title="אין קישור"> </a></li>
+
+            <li><a href="#">english</a></li>
+            <li><a href="#">русский </a></li>
+            <li><a href="#">français</a></li>
+        </ul>
+        <div class="bt-overlay"></div>
+    </nav>
+
+
     <div class="searching">
-        <input type="text" class="search" name="search" placeholder="filter by keywords" list="keywords" onkeydown="checkEnter(event)"/>
+        <input type="text" class="search" name="search" placeholder="filter by keywords" list="keywords"
+            onkeydown="checkEnter(event)" />
         <button onclick="onSearchByKeywords()">search</button>
     </div>
 
@@ -25,18 +43,22 @@
             <img src="img/chen.jpg" alt="">
             <div>
                 <h2>Chen Mordechai</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quia assumenda minima magni ad illum eum odio numquam, quaerat corporis, dolorum aut et reprehenderit cum dolorem adipisci, in id?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quia assumenda minima magni
+                    ad illum eum odio numquam, quaerat corporis, dolorum aut et reprehenderit cum dolorem adipisci, in
+                    id?</p>
             </div>
         </div>
         <div class="niv">
             <img src="img/niv.png" alt="">
             <div>
                 <h2>Niv Bakelman</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum cupiditate quisquam nihil dicta ipsum? Alias dolorem natus, fugiat quaerat iste molestiae nisi, debitis aliquid mollitia tenetur exercitationem quae!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum cupiditate quisquam
+                    nihil dicta ipsum? Alias dolorem natus, fugiat quaerat iste molestiae nisi, debitis aliquid mollitia
+                    tenetur exercitationem quae!</p>
             </div>
         </div>
     </div>
-
+    <script src="lib/borderMenu.js"></script>
     <script src="js/util.js"></script>
     <script src="js/service.js"></script>
     <script src="js/meme-main.js"></script>
