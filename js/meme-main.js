@@ -34,7 +34,8 @@ function onImgClicked(img ,imgUrl) {
     // console.log('i am clicked', img)
     // img.classList.toggle('selectImg');
     // gPrevSelectImg = img
-    saveToStorage('img', imgUrl)
+    let imgBigUrl = `img/big/${imgUrl}`
+    saveToStorage('img', imgBigUrl)
     window.location.replace( "editor.html")
 
     
@@ -45,7 +46,7 @@ function renderImgs() {
     console.log(imgs)
     var htmlImg = imgs.map(function (img) {
         return `<div  class="img img-${img.id} data">
-        <img  onclick="onImgClicked(this,'${img.url}')" src="${img.url}" />
+        <img  onclick="onImgClicked(this,'${img.url}')" src="img/${img.url}" />
     </div>`
     });
 
