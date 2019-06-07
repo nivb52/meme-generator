@@ -139,13 +139,13 @@ button:hover {
 
 img {
   width: 200px;
-  height: 200px;
   margin: 10px 10px;
   align-content: flex-start;
   object-fit: cover;
   transition: transform 0.2s ease-out;
-  border-radius: 15px;
-  border: 2px solid rgb(54, 53, 53);
+  border-radius: 20px;
+  /* height: 200px; */
+  /* border: 2px solid rgb(54, 53, 53); */
 
 
 }
