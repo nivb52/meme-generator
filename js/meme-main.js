@@ -7,11 +7,14 @@ function init() {
     renderImgs(imgs)
 }
 
+function checkEnter(ev) {
+    // ENTER  keyCode = 13
+    if (event.keyCode === 13) onSearchByKeywords()
+}
 
 function onSearchByKeywords() {
     let elSearch = document.querySelector('.search')
     let keyword = elSearch.value.toLowerCase()
-    
     renderImgs(searchByKeyword(keyword))
 }
 

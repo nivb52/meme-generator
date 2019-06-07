@@ -63,7 +63,7 @@ function getImgs() {
 function searchByKeyword(keyword) {
     let imgs = getImgs()
     const result = imgs.filter((word) => {
-        return (word.keywords.indexOf(keyword) >= 0);
+        return (word.keywords.indexOf(keyword) !== -1);
     });
     return result
 }
