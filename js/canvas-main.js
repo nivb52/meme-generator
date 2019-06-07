@@ -13,23 +13,18 @@ let gFont = 'Ariel'
 function init() {
     getAndCreateImg()
     ctx = canvas.getContext('2d')
-    canvas.width = Math.max(window.innerWidth/2, 400)
-    canvas.height = Math.max(window.innerHeight/2 , 400)
+    canvas.width = Math.max(vw() / 2, 400)
+    canvas.height = Math.max(vh() / 2, 400)
     clearCanvas()
-    setTimeout(drawImg, 75)
+    setTimeout(drawImg, 100)
 }
 
 
 
-// function updateFontSize(size) {
-
-// // TODO: update meme font size
-// }
-
 function selectSize(newVal) {
     document.getElementById("size").innerHTML = newVal
-    gFontSize = newVal+'px'
-    console.log('gfontsize',gFontSize)
+    gFontSize = newVal + 'px'
+    console.log('gfontsize', gFontSize)
     // updateFontSize(newVal)     
     return newVal
 }
@@ -44,7 +39,7 @@ function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
     // gMemes.push(createEl(x, y))
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor()
-    console.log('in drow text',gFontSize)
+    console.log('in drow text', gFontSize)
     ctx.font = gFontSize + ' ' + gFont //getFont()
     console.log(ctx.font)
     // let txt = getTextVal()
