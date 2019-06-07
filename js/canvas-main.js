@@ -6,12 +6,17 @@ let currElement = ''
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 const img = document.querySelector('#img-id')
+let gFontSize = '30px';
+let gFont = 'Ariel'
+
 
 function init() {
     getAndCreateImg()
     canvas = document.querySelector('#my-canvas');
     ctx = canvas.getContext('2d')
-    canvas.width = Math.max(window.innerWidth - 200, 400)
+    //     canvas.width = window.innerWidth - 300;
+    //   canvas.height = window.innerHeight - 200;
+    canvas.width = Math.max(window.innerWidth - 200, 300)
     canvas.height = Math.max(window.innerHeight - 300, 400)
     clearCanvas()
     setTimeout(drawImg, 75)
@@ -19,13 +24,17 @@ function init() {
 
 
 
-function updateFontSize(size) {
-// TODO: update meme font size
-}
+// function updateFontSize(size) {
+
+// // TODO: update meme font size
+// }
 
 function selectSize(newVal) {
     document.getElementById("size").innerHTML = newVal
-    updateFontSize(newVal)        
+    gFontSize = `'${newVal}px'`
+    console.log('gfontsize',gFontSize)
+    // updateFontSize(newVal)     
+    return newVal
 }
 
 function getColor() {
@@ -36,10 +45,11 @@ function getColor() {
 function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
 
     // gMemes.push(createEl(x, y))
-
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor()
-    ctx.font = "20px Arial"; //getFont()
+    console.log('in drow text',gFontSize)
+    ctx.font = gFontSize + ' ' + gFont //getFont()
+    console.log(ctx.font)
     // let txt = getTextVal()
     // ctx.fillText(txt, x, y); 
     ctx.strokeText(txt, x, y);
@@ -49,7 +59,7 @@ function getTextVal(areaTextNum) {
     let txt
     if (areaTextNum === 1) {
         txt = elTextBottom.value
-        drawText(txt, canvas.width/10 , canvas.height-50)
+        drawText(txt, canvas.width / 10, canvas.height - 50)
     } else {
         txt = elTextTop.value
         drawText(txt)
@@ -68,11 +78,11 @@ function drawImg() {
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
         let imgUrl = loadFromStorage('img')
-        console.log('chen',imgUrl)
+        console.log('chen', imgUrl)
         img.src = imgUrl
 
     } else {
-        
+
         alert('You did not pick an image you will be to redirect to gallery. if it is a mistake please report admin on about.html page')
         setTimeout(window.location.assign("index.html"), 3000)
     }
@@ -85,7 +95,10 @@ function changeEl(elName) {
 
 function draw(ev) {
     ctx.save()
-    const { offsetX, offsetY } = ev
+    const {
+        offsetX,
+        offsetY
+    } = ev
     switch (currElement) {
         case 'line':
             ev = 0; // 1 line for each press

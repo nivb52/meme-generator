@@ -12,16 +12,17 @@ function onSearchByKeywords() {
     console.log(imgs)
     var keywordSearch = document.querySelector('.search').value
     var currImgs = imgs.filter(function (img) {
+        console.log(img)
         var currKeyWord = img.keywords.filter(function (keyWord) {
             // console.log(keyWord)
             // console.log(keywordSearch)
             return keyWord === keywordSearch
         })
 
-        console.log(currKeyWord)
+        // console.log(currKeyWord)
         return currKeyWord
     })
-// console.log(currImgs)
+console.log(currImgs)
     return currImgs
 }
 
