@@ -16,14 +16,16 @@
 
     <nav id="bt-menu" class="bt-menu bt-menu-close">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-        <ul>
-            <li><a href="#" title="פתח תפריט"> </a></li>
+        <ul >
+            <!-- <li><a href="#" title="פתח תפריט"> </a></li> -->
             <li><a class="simple-ajax-popup" href="about-us.html">about-us</a></li>
-            <li><a href="#" title="אין קישור"> </a></li>
-
-            <li><a href="#">english</a></li>
-            <li><a href="#">русский </a></li>
-            <li><a href="#">français</a></li>
+            <!-- <li><a href="#" title="אין קישור"> </a></li> -->
+            <li class="language "><a href="">language</a>
+                <ul class="dropdown-menu" >
+                    <li onclick="onSelectLang(en)">English</li>
+                    <li onclick="onSelectLang(he)">עברית</li>
+                </ul>
+            </li>
         </ul>
         <div class="bt-overlay"></div>
     </nav>
@@ -38,7 +40,7 @@
     <div class="main-container">
     </div>
 
-    <div class="about-us">
+    <section class="about-us">
         <div class="chen">
             <img src="img/creators/chen.jpg" alt="">
             <div>
@@ -57,7 +59,30 @@
                     tenetur exercitationem quae!</p>
             </div>
         </div>
+    </section>
+
+    <section class="contact-us">
+        <h2>Get in touch</h2>
+        <h3>In order to get in touch use the contactform below</h3>
+        <div class="email">
+            <p>Your E-mail</p>
+            <input class="input-mail" type="text" placeholder="Name@example.com">
+        </div>
+        <div class="subject">
+            <p>Subject</p>
+            <input class="input-subject" type="text" placeholder="Type subject here">
+        </div>
+        <div class="text">
+            <p>Message body</p>
+            <input class="input-text" type="text" placeholder="Type message text here">
+        </div>
+
+        <button type="button" onclick="onSubmit()" class="btn btn-primary">submit</button>
+    </section>
+
     </div>
+
+
     <script src="lib/borderMenu.js"></script>
     <script src="js/util.js"></script>
     <script src="js/service.js"></script>

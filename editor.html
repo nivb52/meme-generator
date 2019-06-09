@@ -15,7 +15,6 @@
 <body onload="init()">
     <h1> Meme Rush </h1>
     <div class="main-container">
-
         <br>
         <button onclick="changeEl('line')">Line</button>
         <button onclick="drawImg()">IMG</button>
@@ -28,7 +27,7 @@
         </a>
     </div>
 
-    <div class="second-container">
+    <div class="canvas-container">
 
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
@@ -39,7 +38,7 @@
     </div>
 
 
-    <div class="third-container">
+    <div class="editor">
         <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
             onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
 

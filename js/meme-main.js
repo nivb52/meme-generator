@@ -6,6 +6,38 @@ function init() {
     renderImgs(imgs)
 }
 
+
+function onSelectLang(en){
+    console.log('select lang')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function onSubmit(){
+    // var email = $('.input-mail').val()
+    var subject = document.querySelector('.input-subject').value
+    var message = document.querySelector('.input-text').value
+    // console.log(email , subject , message)
+    window.open(`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=chen100030@gmail.com.com&su=${subject}&body=${message}&.com&tf=1`)
+
+}
+
+
+
+
+
+
+
+
 function checkEnter(ev) {
     // ENTER  keyCode = 13
     if (event.keyCode === 13) onSearchByKeywords()
