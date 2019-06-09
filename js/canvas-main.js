@@ -21,11 +21,10 @@ function init() {
 
 
 
-function selectSize(newVal) {
+function onSelectSize(newVal) {
     document.getElementById("size").innerHTML = newVal
     gFontSize = newVal + 'px'
-    console.log('gfontsize', gFontSize)
-    // updateFontSize(newVal)     
+    // updateFontSize(newVal)
     return newVal
 }
 
@@ -35,15 +34,15 @@ function getColor() {
 }
 
 function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
-
+    clearCanvas()
     // gMemes.push(createEl(x, y))
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor()
     console.log('in drow text', gFontSize)
-    ctx.font = gFontSize + ' ' + gFont //getFont()
+    ctx.font = gFontSize + ' ' + gFont 
     console.log(ctx.font)
     // let txt = getTextVal()
-    // ctx.fillText(txt, x, y); 
+    ctx.fillText(txt, x, y); 
     ctx.strokeText(txt, x, y);
 }
 
@@ -70,7 +69,6 @@ function drawImg() {
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
         let imgUrl = loadFromStorage('img')
-        console.log('chen', imgUrl)
         img.src = imgUrl
 
     } else {
