@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
     <link rel="stylesheet" href="css/main.css" />
+    <style>
+        .info {
+            position: absolute;
+        }
+    </style>
 
 </head>
 
@@ -32,15 +37,14 @@
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
 
-            <canvas onclick="draw(event)" width="50" id="my-canvas" height="50" style="cursor: crosshair;">
-                Update your browser to enjoy canvas!
-            </canvas>
+        <canvas onclick="draw(event)" width="50" id="my-canvas" height="50" style="cursor: crosshair ;">
+            Update your browser to enjoy canvas!
+        </canvas>
     </div>
 
-
-    <div class="editor">
-        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="255"
-            onInput="getTextVal()" onkeydown="isDelete(event)" value=""></textarea>
+    <div class="third-container">
+        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="35"
+            onInput="getTextVal(this)" onkeydown="isDelete(event)" value=""></textarea>
 
         <div class="button-container">
 
@@ -58,16 +62,16 @@
             </select>
 
             <!-- font size -->
-            <input type="range" id="font-size" name="font-size" min="20" max="50" value="35"
-                onchange="selectSize(this.value);" />
-            <span id="size">30</span>
+            <input type="range" id="font-size" name="font-size" min="16" max="100" value="36"
+                onchange="onSelectSize(this.value);" />
+            <span id="size">36</span>
             <button><i class="fas fa-align-left"></i></button>
             <button><i class="fas fa-align-justify"></i></button>
             <button><i class="fas fa-align-right"></i></button>
         </div>
 
         <textarea name="bottom-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="255"
-            onInput="getTextVal(1)" onkeydown="isDelete(event)" value=""></textarea>
+            onInput="getTextVal(this)" onkeydown="isDelete(event)" value=""></textarea>
         <!--  buttons -->
         <div class="button-container">
             <button><i class="fas fa-plus"></i></button>
@@ -82,8 +86,8 @@
                 <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
             </select>
             <!-- font size -->
-            <input type="range" id="font-size" name="font-size" min="1" max="30" value="16"
-                onchange="selectSize(this.value);" />
+            <input type="range" id="font-size" name="font-size" min="16" max="100" value="16"
+                onchange="onSelectSize(this.value);" />
             <span id="size">16</span>
             <button><i class="fas fa-align-left"></i></button>
             <button><i class="fas fa-align-justify"></i></button>
@@ -93,7 +97,7 @@
 
     </div>
     <div>
-        <img id="img-id" src="" style="visibility: hidden;">
+        <img id="img-id" style="visibility: hidden; width:auto" />
     </div>
 
 
@@ -101,8 +105,6 @@
 
 
     <script src="js/util.js"></script>
-    <script src="js/service.js"></script>
-    <script src="js/meme-main.js"></script>
     <script src="js/canvas-main.js"></script>
 </body>
 

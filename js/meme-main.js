@@ -71,4 +71,3 @@ function renderImgs(imgs) {
 }
 
 
-fu
