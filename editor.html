@@ -21,12 +21,19 @@
     <h1> Meme Rush </h1>
     <div class="main-container">
         <br>
+
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden" />
+            <button class="publish" type="submit">share</button>
+        </form>
         <button onclick="changeEl('line')">Line</button>
         <button onclick="drawImg()">IMG</button>
         <!-- Todo: share -->
         <!-- <button class="button">Share</button> -->
 
-        <input type="file" name="image" onchange="onFileInputChange(event)" />
+        <button class="uploud"> <input type="file" name="image" onchange="onFileInputChange(event)" /></button>
+
+
 
         <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
         <a href="index.html">
@@ -44,7 +51,7 @@
         </canvas>
     </div>
 
-    <div class="third-container">
+    <div class="editor-container">
         <select id="mem-choose" onchange="onChangeMem()">
             <option class="impact" value="0"> 1</option>
             <option class="impact" value="1"> 2</option>
@@ -92,8 +99,6 @@
     <div>
         <img id="img-id" style="visibility: hidden; width:auto" />
     </div>
-
-
 
 
 

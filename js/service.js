@@ -19,74 +19,68 @@ function updateGkeywords(keyword) {
         if (currKeyword === keyword) {
             keywordCount++
             // console.log(keywordCount)
-            gKeywords[keyword] = keywordCount
-
-        } else if (!gKeywords[keyword]) {
+            gKeywords[keyword]= keywordCount
+        
+        } else if(!gKeywords[keyword]){
             // console.log('no')
             gKeywords[keyword] = 1
         }
     }
     // console.log(gKeywords)
-    saveToStorage('gKeywords', gKeywords)
+    saveToStorage('gKeywords', gKeywords) 
     renderKeyWord()
 }
 
 
 
-// for (langName in langVotesMap) {
-//     var votesCount = langVotesMap[langName];
-//     console.log('Language: ' + langName + ' has: ' + votesCount + ' votes');
-// }
-
-
 var gImgs = [{
     id: 1,
     url: '19.jpg',
-    keywords: ['man', 'angry', 'עצבני', 'איש']
+    keywords: ['man', 'angry']
 }, {
     id: 2,
     url: '2.jpg',
-    keywords: ['woman', 'happy', 'שמח']
+    keywords: ['woman', 'happy']
 }, {
     id: 3,
     url: '5.jpg',
-    keywords: ['child', 'ילד']
+    keywords: ['child']
 }, {
     id: 4,
     url: '8.jpg',
-    keywords: ['happy', 'man', 'איש', 'שמח']
+    keywords: ['happy', 'man']
 }, {
     id: 5,
     url: '9.jpg',
-    keywords: ['happy', 'child', 'שמח', 'ילד']
+    keywords: ['happy', 'child']
 }, {
     id: 6,
     url: '12.jpg',
-    keywords: ['man', 'איש']
+    keywords: ['man']
 }, {
     id: 7,
     url: '003.jpg',
-    keywords: ['man', 'angry', 'איש', 'עצבני']
+    keywords: ['man','angry']
 }, {
     id: 8,
     url: '004.jpg',
-    keywords: ['happy', 'dog', 'שמח', 'כלב']
+    keywords: ['happy','dog']
 }, {
     id: 9,
     url: '005.jpg',
-    keywords: ['dog', 'child', 'ילד', 'כלב']
+    keywords: ['dog','child']
 }, {
     id: 10,
     url: '006.jpg',
-    keywords: ['cat', 'חתול']
+    keywords: ['cat']
 }, {
     id: 11,
     url: 'img5.jpg',
-    keywords: ['child', 'happy', 'שמח', 'ילד']
+    keywords: ['child','happy']
 }, {
     id: 12,
     url: 'leo.jpg',
-    keywords: ['man', 'happy', 'איש', 'שמח']
+    keywords: ['man','happy']
 }];
 
 
@@ -205,5 +199,6 @@ var gTrans = {
         he: 'ילד'
     },
 
-}
 
+
+}
