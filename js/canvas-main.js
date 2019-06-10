@@ -7,6 +7,7 @@ const ctx = canvas.getContext('2d')
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 const elImg = document.querySelector('#img-id')
+const elCanvasContainer = document.querySelector('.canvas-container')
 
 let CANVAS_WIDTH
 let CANVAS_HEIGHT
@@ -143,7 +144,7 @@ canvas.addEventListener('click', function (e) {
         textarea = document.createElement('textarea');
         textarea.className = 'info';
         textarea.addEventListener('mousedown', mouseDownOnTextarea);
-        document.body.querySelector('.second-container').appendChild(textarea);
+        elCanvasContainer.appendChild(textarea);
     }
     var x = e.clientX - canvas.offsetLeft,
         y = e.clientY - canvas.offsetTop;
