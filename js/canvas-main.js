@@ -25,20 +25,19 @@ function init() {
     elImg.onload = function () {
         createCanvas()
         drawImg()
+        // TOP TXT - X,Y  canvas.width / 10, canvas.height - 50
+        gMemes.push(creteMeme(canvas.width / 10, canvas.height - 10))
+    
+        // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
+        gMemes.push(creteMeme(canvas.width / 10, canvas.height / 10))
     }
-
-    // TOP TXT - X,Y  canvas.width / 10, canvas.height - 50
-    gMemes.push(creteMeme(canvas.width / 10, canvas.height - 10))
-
-    // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
-    gMemes.push(creteMeme(canvas.width / 10,  canvas.height / 10))
 }
 
 
-function creteMeme(x,y,txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
+function creteMeme(x, y, txt = '', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
     return {
-        x: x, y:y,
-        txt: txt, size: size, font: font, align: align, color: color 
+        x: x, y: y,
+        txt: txt, size: size, font: font, align: align, color: color
     }
 }
 
@@ -89,14 +88,25 @@ function onChangeColor(currColor) {
 
 function drawText() {
     clearCanvas()
-    let currFont = gMemes[0].size + 'px ' + gMemes[0].font
 
-    ctx.fillStyle = gMemes[0].color
-    ctx.strokeStyle = '#000000'  //gMemes[0].color //
-    ctx.font = currFont //font-size + 'px' + ' ' + font-family
+    gMemes.forEach(mem => {
+        let currFont = mem.size + 'px ' + mem.font
 
-    ctx.fillText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
-    ctx.strokeText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
+        ctx.fillStyle = mem.color
+        ctx.strokeStyle = '#000000'
+        ctx.font = currFont //font-size + 'px' + ' ' + font-family
+
+        ctx.fillText(mem.txt, mem.x, mem.y);
+        ctx.strokeText(mem.txt, mem.x, mem.y);
+    })
+    // let currFont = gMemes[0].size + 'px ' + gMemes[0].font
+
+    // ctx.fillStyle = gMemes[0].color
+    // ctx.strokeStyle = '#000000'  //gMemes[0].color //
+    // ctx.font = currFont //font-size + 'px' + ' ' + font-family
+
+    // ctx.fillText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
+    // ctx.strokeText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
 }
 
 function getTextVal(el) {
@@ -181,8 +191,11 @@ function draw(ev) {
         case 'line':
             ev = 0; // 1 line for each press
             break;
-        default: console.log(ev);
-        
+        default:
+            console.log('x', offsetX, '  y', offsetY);
+            if (gMemes[0].x > offsetX) console.log('bigger than x');
+            if (gMemes[0].y > offsetY) console.log('bigger than y');
+
             return
     }
 }
