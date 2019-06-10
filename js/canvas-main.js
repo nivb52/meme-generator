@@ -26,14 +26,18 @@ function init() {
         createCanvas()
         drawImg()
     }
-    gMemes.push(creteMeme())
-    gMemes.push(creteMeme())
+    
+    // TOP TXT - X,Y  canvas.width / 10, canvas.height - 50
+    gMemes.push(creteMeme(canvas.width / 10, canvas.height - 50))
+
+    // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
+    gMemes.push(creteMeme(canvas.width / 10, y = canvas.height / 10))
 }
 
-
-function creteMeme(txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
+function creteMeme(x,y,txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
     return {
-        txt: txt, size: size, font: font, align: align, color: color //, x: x, y:y
+        x: x, y:y,
+        txt: txt, size: size, font: font, align: align, color: color 
     }
 }
 
@@ -81,7 +85,8 @@ function onChangeColor(currColor) {
     drawText()
 }
 
-function drawText(x = canvas.width / 10, y = canvas.height / 10) {
+
+function drawText() {
     clearCanvas()
     let currFont = gMemes[0].size + 'px ' + gMemes[0].font
 
@@ -98,7 +103,7 @@ function getTextVal(el) {
 
     if (el.name === 'bottom-text') {
         gMemes[1].txt = currTxtVal
-        drawText(currTxtVal, canvas.width / 10, canvas.height - 50)
+        drawText(currTxtVal)
     } else if (el.name === 'top-text') {
         gMemes[0].txt = currTxtVal
         drawText(currTxtVal)
@@ -174,9 +179,9 @@ function draw(ev) {
     switch (currElement) {
         case 'line':
             ev = 0; // 1 line for each press
-            consol(offsetX, offsetY)
             break;
-        default:
+        default: console.log(ev);
+        
             return
     }
 }
