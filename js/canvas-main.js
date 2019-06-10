@@ -31,7 +31,7 @@ function init() {
     gMemes.push(creteMeme(canvas.width / 10, canvas.height - 50))
 
     // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
-    gMemes.push(creteMeme(canvas.width / 10, y = canvas.height / 10))
+    gMemes.push(creteMeme(canvas.width / 10,  canvas.height / 10))
 }
 
 
