@@ -79,11 +79,12 @@ function onChangeColor(currColor) {
 
 function drawText(x = canvas.width / 10, y = canvas.height / 10) {
     clearCanvas()
+    let currFont = gMemes[0].size + 'px ' + gMemes[0].font
+    
     ctx.fillStyle = gMemes[0].color
     ctx.strokeStyle = gMemes[0].color //'#000000' 
-    let currFont = gMemes[0].size + 'px ' + gMemes[0].font
     ctx.font = currFont //gFontSize + 'px' + ' ' + gFont
-    console.log(currFont);
+
     ctx.fillText(gMemes[0].txt, x, y);
     ctx.strokeText(gMemes[0].txt, x, y);
 }
