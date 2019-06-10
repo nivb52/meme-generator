@@ -13,33 +13,36 @@
 
 <body onload="init()">
     <h1 data-trans="title"> Meme Creator!</h1>
-    <select class="select-lang"  onchange="onSelectLang(this.value)">
-            <option >language</option>
-            <option value="en">English</option>
-            <option value="he">עברית</option>
-        </select>
+
 
     <nav id="bt-menu" class="bt-menu bt-menu-close">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
-        <ul >
+        <ul>
             <li><a href="#" title="פתח תפריט"> </a></li>
             <li><a class="simple-ajax-popup" href="about-us.html">about-us</a></li>
+            <li>
+                <select class="select-lang" onchange="onSelectLang(this.value)">
+                    <option>language</option>
+                    <option value="en">English</option>
+                    <option value="he">עברית</option>
+                </select>
+            </li>
             <li><a href="#" title="אין קישור"> </a></li>
         </ul>
         <div class="bt-overlay"></div>
     </nav>
 
-  
+
     <div class="searching">
-            <input list="searching" data-trans="searching" class="search" name="searching" placeholder="filter by keywords"
-            onkeydown="checkEnter(event)"  />
-            <datalist id="searching">
-                    <option value="happy">
-                    <option value="man">
-                    <option value="woman">
-                    <option value="angry">
-                    <option value="child">
-                  </datalist>
+        <input list="searching" data-trans="searching" class="search" name="searching" placeholder="filter by keywords"
+            onkeydown="checkEnter(event)" />
+        <datalist id="searching">
+            <option value="happy">
+            <option value="man">
+            <option value="woman">
+            <option value="angry">
+            <option value="child">
+        </datalist>
         <button data-trans="search" onclick="onSearchByKeywords()">search</button>
     </div>
 
@@ -54,7 +57,8 @@
             <img src="img/creators/chen.jpg" alt="">
             <div>
                 <h2 data-trans="chen">Chen Mordechai</h2>
-                <p data-trans="lorem-chen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quia assumenda minima magni
+                <p data-trans="lorem-chen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo
+                    quia assumenda minima magni
                     ad illum eum odio numquam, quaerat corporis, dolorum aut et reprehenderit cum dolorem adipisci, in
                     id?</p>
             </div>
@@ -63,7 +67,8 @@
             <img src="img/creators/niv.png" alt="">
             <div>
                 <h2 data-trans="niv">Niv Bakelman</h2>
-                <p data-trans="lorem-niv">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum cupiditate quisquam
+                <p data-trans="lorem-niv">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum
+                    cupiditate quisquam
                     nihil dicta ipsum? Alias dolorem natus, fugiat quaerat iste molestiae nisi, debitis aliquid mollitia
                     tenetur exercitationem quae!</p>
             </div>
