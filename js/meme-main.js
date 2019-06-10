@@ -7,7 +7,6 @@ function init() {
     renderKeyWord()
 }
 
-let gCurrLang ='en'
 
 function onSelectLang(lang){
     console.log('select lang')
@@ -16,12 +15,6 @@ function onSelectLang(lang){
     else document.body.classList.remove('rtl');
     doTrans();
 }
-
-
-
-
-
-
 
 
 function onSubmit(){

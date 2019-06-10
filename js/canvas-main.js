@@ -1,5 +1,5 @@
 'use strict'
-//let gMemes = [] // our elements
+let gMemes = [] // our elements
 let currElement = ''
 
 const canvas = document.querySelector('#my-canvas');
@@ -13,6 +13,7 @@ const elCanvasContainer = document.querySelector('.canvas-container')
 let CANVAS_WIDTH
 let CANVAS_HEIGHT
 
+let gId = 0
 let gFontSize = '36px';
 let gFont = 'Ariel'
 // canvas.style.backgroundImage = loadFromStorage('img')
@@ -22,6 +23,13 @@ function init() {
     elImg.onload = function () {
         createCanvas()
         drawImg()
+    }
+}
+
+
+function creteMeme(txt = 'just a sample text', size = '20px', align = 'left', color = 'red') {
+    return {
+        id: gId++ ,line: txt, size: size, align: align, color: color //getColor() //, x: x, y:y
     }
 }
 function getAndCreateImg() {
@@ -38,7 +46,7 @@ function createCanvas() {
     CANVAS_WIDTH = Math.min(vw(), document.querySelector('#img-id').naturalWidth)
     CANVAS_HEIGHT = Math.min(vh(), document.querySelector('#img-id').naturalHeight)
     canvas.width = CANVAS_WIDTH
-    canvas.height = CANVAS_HEIGHT 
+    canvas.height = CANVAS_HEIGHT
     canvas.style.marginLeft = 'auto' // Center the Canvas
     canvas.style.marginRight = 'auto' // Center the Canvas
 }
@@ -71,9 +79,12 @@ function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
 
 function getTextVal(areaText) {
     let txt = areaText.value
+    
     if (areaText.name === 'bottom-text') {
+        gMemes[0] = creteMeme(txt)
         drawText(txt, canvas.width / 10, canvas.height - 50)
     } else if (areaText.name === 'top-text') {
+        gMemes[1] = creteMeme(txt)
         drawText(txt)
     } else return
 
@@ -120,39 +131,48 @@ function downloadCanvas(elLink) {
 
 
 let textarea
+const maxX = canvas.offsetWidth - canvas.offsetLeft
+
 function mouseDownOnTextarea(e) {
-    var x = textarea.offsetLeft - e.clientX,
-        y = textarea.offsetTop - e.clientY;
+    var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
     function drag(e) {
-        
-        
-        textarea.style.left = e.clientX + x + 'px';
-        textarea.style.top = e.clientY + y + 'px';
-        // if (e.clientX + x > CANVAS_WIDTH || e.clientX + x < 0) return
-        // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) console.log(e.clientY + y);
+        textarea.style.left = e.clientX + x + 'px'
+        textarea.style.top = e.clientY + y + 'px'
+        // if (e.clientY + y > maxX || e.clientX + x < 0) 
+        // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
+        // textarea.value = "x: " + x + " y: " + y;
 
     }
     function stopDrag() {
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', stopDrag);
-        textarea.value = "x: " + x + " y: " + y;
+        document.removeEventListener('mousemove', drag)
+        document.removeEventListener('mouseup', stopDrag)
+        // textarea.value = "x: " + x + " y: " + y
     }
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDrag);
+    function getText() {
+        // let txt = this.value
+        console.log(this.value);
+        
+    }
+
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', stopDrag)
+    document.addEventListener('onkeydown', getText)
 }
+
 canvas.addEventListener('click', function (e) {
     if (!textarea) {
-        textarea = document.createElement('textarea');
-        textarea.className = 'info';
-        textarea.addEventListener('mousedown', mouseDownOnTextarea);
-        elCanvasContainer.appendChild(textarea);
+        textarea = document.createElement('input')
+        textarea.className = 'info'
+        // textarea.style.backgroundColor = (255,255,255,0.1)
+        textarea.addEventListener('mousedown', mouseDownOnTextarea)
+        elCanvasContainer.appendChild(textarea)
     }
-    var x = e.clientX - canvas.offsetLeft,
-        y = e.clientY - canvas.offsetTop;
-    textarea.value = "x: " + x + " y: " + y;
-    textarea.style.top = e.clientY + 'px';
-    textarea.style.left = e.clientX + 'px';
-}, false);
+    // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
+    // textarea.value = "x: " + x + " y: " + y
+    textarea.value = 'test' 
+    textarea.style.top = e.clientY + 'px'
+    textarea.style.left = e.clientX + 'px'
+}, false)
 
 
 function drawLine(x, y) {
@@ -192,3 +212,6 @@ function addProps(char, x, y) {
     ctx.beginPath()
     ctx.strokeText(char, x, y)
 }
+
+
+

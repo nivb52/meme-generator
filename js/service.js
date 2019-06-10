@@ -1,33 +1,50 @@
 'use strict'
+let gCurrLang = 'en'
 
-var gKeywords = {
-    'happy': 12,
-    'man': 1,
-    'woman': 3,
-    'angry': 8,
-    'child': 5
+let gKeywords = getKeywords()
+
+
+
+function getKeywords() {    
+    if (gCurrLang === 'he') {
+        return {
+            'שמח': 12,
+            'איש': 1,
+            'אישה': 3,
+            'עצבני': 8,
+            'ילד': 5
+        }
+    }
+    else {
+        return {
+            'happy': 12,
+            'man': 1,
+            'woman': 3,
+            'angry': 8,
+            'child': 5
+        }
+    }
 }
 
-
-
 function updateGkeywords(keyword) {
-    // console.log(gKeywords)
-    // console.log(keyword)
+    gKeywords = getKeywords()
+
+
     for (var currKeyword in gKeywords) {
         var keywordCount = gKeywords[currKeyword]
         console.log('key/words', currKeyword)
         if (currKeyword === keyword) {
             keywordCount++
             // console.log(keywordCount)
-            gKeywords[keyword]= keywordCount
-        
-        } else if(!gKeywords[keyword]){
+            gKeywords[keyword] = keywordCount
+
+        } else if (!gKeywords[keyword]) {
             // console.log('no')
             gKeywords[keyword] = 1
         }
     }
     // console.log(gKeywords)
-    saveToStorage('gKeywords', gKeywords) 
+    saveToStorage('gKeywords', gKeywords)
     renderKeyWord()
 }
 
@@ -42,51 +59,51 @@ function updateGkeywords(keyword) {
 var gImgs = [{
     id: 1,
     url: '19.jpg',
-    keywords: ['man', 'angry']
+    keywords: ['man', 'angry', 'עצבני', 'איש']
 }, {
     id: 2,
     url: '2.jpg',
-    keywords: ['woman', 'happy']
+    keywords: ['woman', 'happy', 'שמח']
 }, {
     id: 3,
     url: '5.jpg',
-    keywords: ['child']
+    keywords: ['child', 'ילד']
 }, {
     id: 4,
     url: '8.jpg',
-    keywords: ['happy', 'man']
+    keywords: ['happy', 'man', 'איש', 'שמח']
 }, {
     id: 5,
     url: '9.jpg',
-    keywords: ['happy', 'child']
+    keywords: ['happy', 'child', 'שמח', 'ילד']
 }, {
     id: 6,
     url: '12.jpg',
-    keywords: ['man']
+    keywords: ['man', 'איש']
 }, {
     id: 7,
     url: '003.jpg',
-    keywords: ['man','angry']
+    keywords: ['man', 'angry', 'איש', 'עצבני']
 }, {
     id: 8,
     url: '004.jpg',
-    keywords: ['happy','dog']
+    keywords: ['happy', 'dog', 'שמח', 'כלב']
 }, {
     id: 9,
     url: '005.jpg',
-    keywords: ['dog','child']
+    keywords: ['dog', 'child', 'ילד', 'כלב']
 }, {
     id: 10,
     url: '006.jpg',
-    keywords: ['cat']
+    keywords: ['cat', 'חתול']
 }, {
     id: 11,
     url: 'img5.jpg',
-    keywords: ['child','happy']
+    keywords: ['child', 'happy', 'שמח', 'ילד']
 }, {
     id: 12,
     url: 'leo.jpg',
-    keywords: ['man','happy']
+    keywords: ['man', 'happy', 'איש', 'שמח']
 }];
 
 
@@ -193,6 +210,5 @@ var gTrans = {
         he: 'שלח'
     },
 
-
-
 }
+
