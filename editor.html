@@ -51,7 +51,12 @@
         <div class="button-container">
 
             <!--  buttons -->
-            <button><i class="fas fa-plus"></i></button>
+            <button ><i class="fas fa-plus"></i></button>
+            <button onclick="moveLine('left')"><i class="fas fa-arrow-left"></i></button>
+            <button onclick="moveLine('right')"><i class="fas fa-arrow-right"></i></button>
+            <button onclick="moveLine('up')"><i class="fas fa-arrow-up"></i></button>
+            <button onclick="moveLine('down')"><i class="fas fa-arrow-down"></i></button>
+
             <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
             <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
 

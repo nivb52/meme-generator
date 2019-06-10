@@ -35,12 +35,6 @@ function updateGkeywords(keyword) {
 
 
 
-// for (langName in langVotesMap) {
-//     var votesCount = langVotesMap[langName];
-//     console.log('Language: ' + langName + ' has: ' + votesCount + ' votes');
-// }
-
-
 var gImgs = [{
     id: 1,
     url: '19.jpg',

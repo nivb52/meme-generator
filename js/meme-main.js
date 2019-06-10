@@ -19,12 +19,6 @@ function onSelectLang(lang){
 }
 
 
-
-
-
-
-
-
 function onSubmit(){
     // var email = $('.input-mail').val()
     var subject = document.querySelector('.input-subject').value

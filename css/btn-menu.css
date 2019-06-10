@@ -2,7 +2,7 @@
 .bt-menu-trigger span, .bt-menu-trigger span:before,
 .bt-menu-trigger span:after { 
 	color:#fff;
-	background: #fff;
+	background: rgb(205, 102, 236);
 }
 @media screen and (max-width: 629px) {
 body {
@@ -12,7 +12,7 @@ body {
 .bt-menu-trigger span, .bt-menu-trigger span:before,
 .bt-menu-trigger span:after { 
 	color:#000;
-	background: #000;
+	background: rgb(205, 102, 236);
 }
 }
 @media screen and (min-width: 1450px) {
@@ -165,6 +165,7 @@ body {
 .bt-menu ul:first-of-type {
 	top: 75px;
 	left: 0;
+	/* display: none; */
 }
 
 .bt-menu ul:nth-of-type(2) {
