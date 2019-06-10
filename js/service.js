@@ -1,36 +1,17 @@
 'use strict'
 let gCurrLang = 'en'
 
-let gKeywords = getKeywords()
-
-
-let gCurrLang ='en'
-
-
-function getKeywords() {    
-    if (gCurrLang === 'he') {
-        return {
-            'שמח': 12,
-            'איש': 1,
-            'אישה': 3,
-            'עצבני': 8,
-            'ילד': 5
-        }
-    }
-    else {
-        return {
-            'happy': 12,
-            'man': 1,
-            'woman': 3,
-            'angry': 8,
-            'child': 5
-        }
-    }
+let gKeywords = {
+    'happy': 12,
+    'man': 1,
+    'woman': 3,
+    'angry': 8,
+    'child': 5
 }
 
-function updateGkeywords(keyword) {
-    gKeywords = getKeywords()
 
+
+function updateGkeywords(keyword) {
 
     for (var currKeyword in gKeywords) {
         var keywordCount = gKeywords[currKeyword]
