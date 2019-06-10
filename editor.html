@@ -74,13 +74,13 @@
             <button><i class="fas fa-align-right"></i></button>
         </div>
 
-        <textarea name="bottom-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="255"
+        <textarea name="bottom-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="100"
             onInput="getTextVal(this)" onkeydown="isDelete(event)" value=""></textarea>
         <!--  buttons -->
         <div class="button-container">
             <button><i class="fas fa-plus"></i></button>
             <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
-            <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
+            <input onclick="onChangeColor(this.value)" class="select-color" id="fill-color" type="color" value="#f9f9f9">
 
             <!-- font family -->
             <select onchange="getfontSize(this.value)">

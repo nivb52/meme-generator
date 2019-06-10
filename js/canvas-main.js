@@ -73,15 +73,14 @@ function onSelectSize(currSize) {
     return currSize
 }
 
-function getColor() {
-    let fillColor = document.querySelector('#fill-color').value
-    return fillColor
+function onChangeColor(currColor) {
+    gMemes[0].color = currColor
 }
 
 function drawText(x = canvas.width / 10, y = canvas.height / 10) {
     clearCanvas()
-    ctx.fillStyle = getColor()
-    ctx.strokeStyle = getColor() //'#000000' 
+    ctx.fillStyle = gMemes[0].color
+    ctx.strokeStyle = gMemes[0].color //'#000000' 
     let currFont = gMemes[0].size + 'px ' + gMemes[0].font
     ctx.font = currFont //gFontSize + 'px' + ' ' + gFont
     console.log(currFont);
@@ -152,7 +151,7 @@ function drawLine(x, y) {
     ctx.lineTo(x + 50, y)
     ctx.closePath()
     ctx.lineWidth = 1
-    ctx.strokeStyle = getColor()
+    ctx.strokeStyle = onChangeColor()
     ctx.stroke();
 }
 
