@@ -96,9 +96,10 @@ video {
 
 /* BASE */
 
-body {
+/* body {
   /* background-color: #000; */
-}
+/* }  */
+
 body.rtl {
   direction: rtl;
 }
