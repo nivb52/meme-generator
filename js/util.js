@@ -9,17 +9,6 @@ function loadFromStorage(key) {
     return JSON.parse(localStorage.getItem(key))
 }
 
-function makeId(length = 5) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}
-
-
 
 function vh() {
     var h = Math.max(document.documentElement.clientHeight, window.innerHeight);
@@ -31,3 +20,27 @@ function vw() {
     return (w);
 }
 
+
+
+
+
+
+// function mouseDownOnTextarea(e) {
+
+//     const { offsetX, offsetY } = ev
+//     console.log(offsetX,' ',offsetY);
+//     dragMem(offsetX, offsetY)
+    
+//     function stopDrag() {
+//         document.removeEventListener('mousemove', drag)
+//         document.removeEventListener('mouseup', stopDrag)
+//         // textarea.value = "x: " + x + " y: " + y
+//     }
+
+//     document.addEventListener('mousemove', dragMem)
+//     document.addEventListener('mouseup', stopDrag)
+// }
+
+// canvas.addEventListener('click', function (e) {
+
+// }, false)

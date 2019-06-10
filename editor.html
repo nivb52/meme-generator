@@ -19,34 +19,11 @@
 
 <body onload="init()">
     <h1> Meme Rush </h1>
-    <div class="main-container">
-        <br>
-
-        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-            <input name="img" id="imgData" type="hidden" />
-            <button class="publish" type="submit">share</button>
-        </form>
-        <button onclick="changeEl('line')">Line</button>
-        <button onclick="drawImg()">IMG</button>
-        <!-- Todo: share -->
-        <!-- <button class="button">Share</button> -->
-
-        <button class="uploud"> <input type="file" name="image" onchange="onFileInputChange(event)" /></button>
-
-
-
-        <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
-        <a href="index.html">
-            <button onclick="" class="button">Back to gallery</button>
-        </a>
-    </div>
-
     <div class="canvas-container">
-
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
 
-        <canvas onclick="draw(event)" width="50" id="my-canvas" height="50" style="cursor: crosshair ;">
+        <canvas onmousedown="findTouchedMem(event)" onmousemove="moveTouchedMem(event)" onmouseup="onStopMovingMem()" onclick="findTouchedMem(event)" width="50" id="my-canvas" height="50" style="cursor: grab ;">
             Update your browser to enjoy canvas!
         </canvas>
     </div>
@@ -60,8 +37,8 @@
 
         <button onclick="onAddMem()"><i class="fas fa-plus"></i></button>
 
-        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="35"
-            onInput="onChangeTxt(this)" onkeydown="isDelete(event)" value=""></textarea>
+        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position" maxlength="35"
+            onInput="onChangeTxt(this)" onkeydown="isDelete(event)" value="" placeholder="type here" autofocus style="max-width: 90%; min-height: 1rem; max-height: 3rem;"></textarea>
 
 
             <!--  buttons -->
@@ -87,13 +64,28 @@
             <input type="range" id="font-size" name="font-size" min="16" max="100" value="36"
                 onchange="onSelectSize(this.value);" />
             <span id="size">36</span>
-            <button><i class="fas fa-align-left"></i></button>
-            <button><i class="fas fa-align-justify"></i></button>
-            <button><i class="fas fa-align-right"></i></button>
+            <button onclick="onChangeAlign(this.value)" value="start"><i class="fas fa-align-left"></i></button>
+            <button onclick="onChangeAlign(this.value)" value="center"><i class="fas fa-align-justify"></i></button>
+            <button onclick="onChangeAlign(this.value)" value="end"><i class="fas fa-align-right"></i></button>
         </div>
-
-
     </div>
+
+
+    <div class="main-container">
+            <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                <input name="img" id="imgData" type="hidden" />
+                <button class="publish" type="submit">share</button>
+            </form>
+    
+            <button class="uploud"> <input type="file" name="image" onchange="onFileInputChange(event)" /></button>
+    
+    
+    
+            <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
+            <a href="index.html">
+                <button onclick="" class="button">Back to gallery</button>
+            </a>
+        </div>
 
     </div>
     <div>

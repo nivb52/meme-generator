@@ -169,7 +169,7 @@ img {
 /* CLASS & IDs */
 
 .main-container {
-  margin-top: 20px;
+  margin-top: 1rem;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -181,15 +181,18 @@ img {
 }
 
 
-
 .editor-container {
   /* width: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  height: 250px;
+  /* height: 250px; */
 
+}
+
+#mem-choose{
+  height: 2rem;
 }
 
 input.search {

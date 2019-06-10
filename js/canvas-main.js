@@ -1,17 +1,19 @@
 'use strict'
 let gMemes = [] // our elements
 let currElement = ''
+let gId = 0
+let gTouchedIdx
 
 const canvas = document.querySelector('#my-canvas');
 const ctx = canvas.getContext('2d')
-const elTextTop = document.querySelector('#text-position-top')
-const elTextBottom = document.querySelector('#text-position-bottom')
+const elTextArea = document.querySelector('#text-position')
 
-let elImg = document.querySelector('#img-id')
+const elImg = document.querySelector('#img-id')
 const elCanvasContainer = document.querySelector('.canvas-container')
 
 let CANVAS_WIDTH
 let CANVAS_HEIGHT
+
 
 let gDefaultFontSize = '36';
 let gDefaultFont = 'impact'
@@ -35,11 +37,11 @@ function init() {
     }
 }
 
-
-function creteMeme(x, y, txt = '', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
+function creteMeme(x, y, txt = '', size = gDefaultFontSize, font = gDefaultFont, align = 'left', width = 0, color = gDefaultColor) {
     return {
-        x: x, y: y,
-        txt: txt, size: size, font: font, align: align, color: color
+        x: x, y: y, id: gId++,
+        txt: txt, size: size, font: font, width: width,
+        align: align, color: color
     }
 }
 
@@ -57,7 +59,7 @@ function createCanvas() {
     CANVAS_WIDTH = Math.min(vw(), document.querySelector('#img-id').naturalWidth)
     CANVAS_HEIGHT = Math.min(vh(), document.querySelector('#img-id').naturalHeight)
     canvas.width = CANVAS_WIDTH
-    canvas.height = CANVAS_HEIGHT 
+    canvas.height = CANVAS_HEIGHT
     canvas.style.marginLeft = 'auto' // Center the Canvas
     canvas.style.marginRight = 'auto' // Center the Canvas
 }
@@ -70,15 +72,17 @@ function onSelectSize(currSize) {
     document.getElementById("size").innerHTML = currSize
     let currMem = getMem()
     gMemes[currMem].size = currSize
-    return currSize
+    gMemes[currMem].y += currSize
+    drawText()
 }
 
 
 function getFont(currFont) {
+    // TODO : change font on the text area
+    // example:  elTextTop.classList.add(`${gDefaultFont}`)
     let currMem = getMem()
     gMemes[currMem].font = currFont
-    gDefaultFont = currFont
-    // elTextTop.classList.add(`${gDefaultFont}`)
+    drawText()
 }
 
 function onChangeColor(currColor) {
@@ -87,6 +91,11 @@ function onChangeColor(currColor) {
     drawText()
 }
 
+function onChangeAlign(currAlign) {
+    let currMem = getMem()
+    gMemes[currMem].align = currAlign
+    drawText()
+}
 
 function drawText() {
     clearCanvas()
@@ -95,18 +104,23 @@ function drawText() {
         let currFont = mem.size + 'px ' + mem.font
 
         ctx.fillStyle = mem.color
-        ctx.strokeStyle = '#000000'
-        ctx.font = currFont //font-size + 'px' + ' ' + font-family
+        ctx.strokeStyle = '#000000' // TO THE LETTERS GOOD
 
-        ctx.fillText(mem.txt, mem.x, mem.y);
-        ctx.strokeText(mem.txt, mem.x, mem.y);
+        ctx.font = currFont //font-size + 'px' + ' ' + font-family
+        ctx.textAlign = mem.align
+
+        ctx.fillText(mem.txt, mem.x, mem.y)
+        ctx.strokeText(mem.txt, mem.x, mem.y)
+
+        // FOR LATER MOVING
+        let metrics = ctx.measureText(mem.txt)
+        mem.width = Math.ceil(metrics.width)
     })
 }
 
 function getTextVal(el) {
-    let currTxtVal = el.value 
+    let currTxtVal = el.value
     let currMem = getMem()
-    console.log(currMem);
 
     gMemes[currMem].txt = currTxtVal
 
@@ -114,7 +128,7 @@ function getTextVal(el) {
     ctx.save()
 }
 
-function onChangeTxt(el = elTextTop) {
+function onChangeTxt(el = elTextArea) {
     getTextVal(el)
     drawText()
 }
@@ -138,12 +152,11 @@ function isDelete(ev) {
 
 function deleteOneChar() {
     let currMem = getMem()
-    gMemes[currMem].txt = elTextTop.value
-    // drawText()
+    gMemes[currMem].txt = elTextArea.value
 
 }
 
-function deleteOneMem(){
+function deleteOneMem() {
     let currMem = getMem()
     gMemes[currMem].txt = ''
     drawText()
@@ -156,9 +169,11 @@ function clearCanvas() {
 }
 
 function onChangeMem() {
-    getMem()
-    elTextTop.value = gMemes[getMem()].txt
-    elTextTop.classList.add(`${gDefaultFont}`)
+    let idx = getMem()
+    elTextArea.value = gMemes[getMem()].txt
+    elTextArea.classList.add(`${gDefaultFont}`)
+    
+    document.querySelector('#fill-color').value = gMemes[idx].color || "#f9f9f9"
 }
 
 function getMem() {
@@ -167,17 +182,17 @@ function getMem() {
 }
 
 function addMem() {
-    gMemes.push(creteMeme(CANVAS_WIDTH / 2 , CANVAS_HEIGHT / 2 ) )
-    gMemes[gMemes.length - 1].txt = elTextTop.value ? elTextTop.value : 'Type Here'
+    gMemes.push(creteMeme(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2))
+    gMemes[gMemes.length - 1].txt = elTextArea.value ? elTextArea.value : 'Type Here'
 }
 
 function onAddMem() {
     addMem()
     let currSelectors = document.querySelector('#mem-choose').innerHTML
-    let HTMLSelectors = `<option class="${gDefaultFont}" value="${gMemes.length-1}"> ${gMemes.length}</option>`
-    
+    let HTMLSelectors = `<option class="${gDefaultFont}" value="${gMemes.length - 1}"> ${gMemes.length}</option>`
+
     let elSelcetMem = document.querySelector('#mem-choose')
-    elSelcetMem.innerHTML = currSelectors + HTMLSelectors   //.appendChild()
+    elSelcetMem.innerHTML = currSelectors + HTMLSelectors
 
 }
 
@@ -191,38 +206,47 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
-function drawLine(x, y) {
-    ctx.beginPath()
-    ctx.lineTo(x, y)
-    ctx.lineTo(x + 50, y)
-    ctx.closePath()
-    ctx.lineWidth = 1
-    ctx.strokeStyle = onChangeColor()
-    ctx.stroke();
-}
-
 
 function changeEl(elName) {
     currElement = elName
 }
 
-function draw(ev) {
-    ctx.save()
-    const {
-        offsetX,
-        offsetY
-    } = ev
-    switch (currElement) {
-        case 'line':
-            ev = 0; // 1 line for each press
-            break;
-        default:
-            console.log('x', offsetX, '  y', offsetY);
-            if (gMemes[0].x > offsetX) console.log('bigger than x');
-            if (gMemes[0].y > offsetY) console.log('bigger than y');
 
-            return
+
+function findTouchedMem(ev) {
+    const { offsetX, offsetY } = ev
+    let factor = 5
+    const clickedMEm = gMemes.find(mem => {
+        return (
+            offsetX - factor >= mem.x && offsetX <= mem.x + mem.width
+            &&
+            offsetY <= mem.y && offsetY >= mem.y - (+mem.size)
+        )
+    })
+
+
+    if (clickedMEm) {
+        gTouchedIdx = clickedMEm.id
+        moveTouchedMem(ev)
+        // gMemes[clickedMEm.id].x = offsetX
+        // gMemes[clickedMEm.id].y = offsetY
+        // console.log('moving...', clickedMEm.id)
+        // drawText()
     }
+}
+
+function moveTouchedMem(ev) {
+    const { offsetX, offsetY } = ev
+    if (gTouchedIdx || gTouchedIdx === 0  ) {
+
+        gMemes[gTouchedIdx].x = offsetX
+        gMemes[gTouchedIdx].y = offsetY
+        drawText()
+    }
+}
+
+function onStopMovingMem(){
+    gTouchedIdx = null
 }
 
 function addProps(char, x, y) {
@@ -255,62 +279,20 @@ function handleImageFromInput(ev, onImageReady) {
 
 
 
-// let textarea
-// const maxX = canvas.offsetWidth - canvas.offsetLeft
 
-// function mouseDownOnTextarea(e) {
-//     var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
-//     function drag(e) {
-//         textarea.style.left = e.clientX + x + 'px'
-//         textarea.style.top = e.clientY + y + 'px'
-//         // if (e.clientY + y > maxX || e.clientX + x < 0) 
-//         // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
-//         // textarea.value = "x: " + x + " y: " + y;
-
-//     }
-//     function stopDrag() {
-//         document.removeEventListener('mousemove', drag)
-//         document.removeEventListener('mouseup', stopDrag)
-//         // textarea.value = "x: " + x + " y: " + y
-//     }
-//     function getText() {
-//         // let txt = this.value
-//         console.log(this.value);
-
-//     }
-
-//     document.addEventListener('mousemove', drag)
-//     document.addEventListener('mouseup', stopDrag)
-//     document.addEventListener('onkeydown', getText)
-// }
-
-// canvas.addEventListener('click', function (e) {
-//     if (!textarea) {
-//         textarea = document.createElement('input')
-//         textarea.className = 'info'
-//         // textarea.style.backgroundColor = (255,255,255,0.1)
-//         textarea.addEventListener('mousedown', mouseDownOnTextarea)
-//         elCanvasContainer.appendChild(textarea)
-//     }
-//     // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
-//     // textarea.value = "x: " + x + " y: " + y
-//     textarea.value = 'test'
-//     textarea.style.top = e.clientY + 'px'
-//     textarea.style.left = e.clientX + 'px'
-// }, false)
 function uploadImg(elForm, ev) {
     ev.preventDefault();
 
     document.getElementById('imgData').value = canvas.toDataURL("image/jpeg");
-   
+
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
         console.log('uploadedImgUrl', uploadedImgUrl);
 
         uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        
+
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`)
-        
+
     }
 
     doUploadImg(elForm, onSuccess);
@@ -323,21 +305,21 @@ function doUploadImg(elForm, onSuccess) {
         method: 'POST',
         body: formData
     })
-    .then(function (response) {
-        return response.text()
-    })
-    .then(onSuccess)
-    .catch(function (error) {
-        // console.error(error)
-    })
+        .then(function (response) {
+            return response.text()
+        })
+        .then(onSuccess)
+        .catch(function (error) {
+            // console.error(error)
+        })
 }
 
 
 
-(function(d, s, id) {
+(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = 'https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v3.0&appId=807866106076694&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+}(document, 'script', 'facebook-jssdk'));
