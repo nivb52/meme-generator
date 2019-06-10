@@ -29,11 +29,22 @@
         <div class="bt-overlay"></div>
     </nav>
 
-
+  
     <div class="searching">
-        <input type="text" data-trans="searching" class="search" name="search" placeholder="filter by keywords" list="keywords"
-            onkeydown="checkEnter(event)" />
+            <input list="searching" data-trans="searching" class="search" name="searching" placeholder="filter by keywords"
+            onkeydown="checkEnter(event)"  />
+            <datalist id="searching">
+                    <option value="happy">
+                    <option value="man">
+                    <option value="woman">
+                    <option value="angry">
+                    <option value="child">
+                  </datalist>
         <button data-trans="search" onclick="onSearchByKeywords()">search</button>
+    </div>
+
+    <div class="keyword-search">
+
     </div>
 
     <div class="main-container">

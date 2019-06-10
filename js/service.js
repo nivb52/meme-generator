@@ -1,5 +1,14 @@
 'use strict'
 
+
+var gKeywords = {'happy': 12,'man': 1,'woman':3 ,'angry':8, 'child': 5}
+
+
+
+
+
+
+
 var gImgs = [{
     id: 1,
     url: '19.jpg',
@@ -7,7 +16,7 @@ var gImgs = [{
 }, {
     id: 2,
     url: '2.jpg',
-    keywords: ['women', 'happy']
+    keywords: ['woman', 'happy']
 }, {
     id: 3,
     url: '5.jpg',

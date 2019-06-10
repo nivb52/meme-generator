@@ -351,7 +351,11 @@ font-size: 2rem;
   margin-bottom: 10px;
 }
 
-
+.keyword-search{
+  margin-top: 20px;
+  background-color: #8833aa;
+  height: 100px;
+}
 
 @media (max-width:740px) {
   .about-us {
