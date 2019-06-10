@@ -14,7 +14,8 @@ let CANVAS_WIDTH
 let CANVAS_HEIGHT
 
 let gDefaultFontSize = '36';
-let gDefaultFont = 'Ariel'
+let gDefaultFont = 'impact'
+let gDefaultColor = 'white'
 // canvas.style.backgroundImage = loadFromStorage('img')
 
 
@@ -30,7 +31,7 @@ function init() {
 }
 
 
-function creteMeme(txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = 'red') {
+function creteMeme(txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = gDefaultColor) {
     return {
         txt: txt, size: size, font: font, align: align, color: color //, x: x, y:y
     }
@@ -75,15 +76,16 @@ function onSelectSize(currSize) {
 
 function onChangeColor(currColor) {
     gMemes[0].color = currColor
+    drawText()
 }
 
 function drawText(x = canvas.width / 10, y = canvas.height / 10) {
     clearCanvas()
     let currFont = gMemes[0].size + 'px ' + gMemes[0].font
-    
+
     ctx.fillStyle = gMemes[0].color
-    ctx.strokeStyle = gMemes[0].color //'#000000' 
-    ctx.font = currFont //gFontSize + 'px' + ' ' + gFont
+    ctx.strokeStyle = '#000000'  //gMemes[0].color //
+    ctx.font = currFont //font-size + 'px' + ' ' + font-family
 
     ctx.fillText(gMemes[0].txt, x, y);
     ctx.strokeText(gMemes[0].txt, x, y);
