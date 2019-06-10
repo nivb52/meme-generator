@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d')
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 
-const elImg = document.querySelector('#img-id')
+let elImg = document.querySelector('#img-id')
 const elCanvasContainer = document.querySelector('.canvas-container')
 
 let CANVAS_WIDTH
@@ -17,6 +17,8 @@ let gId = 0
 let gFontSize = '36px';
 let gFont = 'Ariel'
 // canvas.style.backgroundImage = loadFromStorage('img')
+
+
 
 function init() {
     getAndCreateImg()
@@ -32,6 +34,13 @@ function creteMeme(txt = 'just a sample text', size = '20px', align = 'left', co
         id: gId++ ,line: txt, size: size, align: align, color: color //getColor() //, x: x, y:y
     }
 }
+function getfont(font){
+    console.log(font)
+    gFont = font
+}
+
+
+
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
         let imgUrl = loadFromStorage('img')
@@ -213,5 +222,23 @@ function addProps(char, x, y) {
     ctx.strokeText(char, x, y)
 }
 
+function onFileInputChange(ev) {
+    handleImageFromInput(ev, drawImg)
+    
+}
 
 
+//UPLOAD IMG WITH INPUT FILE
+function handleImageFromInput(ev, onImageReady ) {
+    console.log(ev , onImageReady)
+    document.querySelector('#my-canvas').innerHTML = ''
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+        var img = new Image();
+        elImg =img
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(ev.target.files[0]);
+}

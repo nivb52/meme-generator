@@ -4,6 +4,8 @@ let gCurrLang = 'en'
 let gKeywords = getKeywords()
 
 
+let gCurrLang ='en'
+
 
 function getKeywords() {    
     if (gCurrLang === 'he') {
@@ -32,7 +34,7 @@ function updateGkeywords(keyword) {
 
     for (var currKeyword in gKeywords) {
         var keywordCount = gKeywords[currKeyword]
-        console.log('key/words', currKeyword)
+        console.log('keywords', currKeyword)
         if (currKeyword === keyword) {
             keywordCount++
             // console.log(keywordCount)
@@ -205,9 +207,21 @@ var gTrans = {
         en: 'Message body',
         he: 'גוף ההודעה'
     },
-    submit: {
-        en: 'submit',
-        he: 'שלח'
+    happy: {
+        en: 'happy',
+        he: 'שמח'
+    },man: {
+        en: 'man',
+        he: 'איש'
+    },woman: {
+        en: 'woman',
+        he: 'אישה'
+    },angry: {
+        en: 'angry',
+        he: 'כועס'
+    },child: {
+        en: 'child',
+        he: 'ילד'
     },
 
 }

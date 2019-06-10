@@ -25,8 +25,10 @@
         <button onclick="drawImg()">IMG</button>
         <!-- Todo: share -->
         <!-- <button class="button">Share</button> -->
-        <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
+        
+        <input type="file" name="image" onchange="onFileInputChange(event)" />
 
+<a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
         <a href="index.html">
             <button onclick="" class="button">Back to gallery</button>
         </a>
@@ -54,12 +56,14 @@
             <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
 
             <!-- font family -->
-            <select onchange="getfontSize(this.value)">
+            <select onchange="getfont(this.value)">
                 <option>font</option>
-                <option class="impact" value="impact"> Impact</option>
-                <option class="courier-New" value="courier-New">Courier-New</option>
-                <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
+                <option class="impact" value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"> Impact</option>
+                <option class="courier-New" value="'Courier New', Courier, monospace">Courier-New</option>
+                <option class="Pacifico" value="'Pacifico', cursive">Pacifico</option>
             </select>
+
+
 
             <!-- font size -->
             <input type="range" id="font-size" name="font-size" min="16" max="100" value="36"
