@@ -206,46 +206,46 @@ function handleImageFromInput(ev, onImageReady) {
 
 
 
-let textarea
-const maxX = canvas.offsetWidth - canvas.offsetLeft
+// let textarea
+// const maxX = canvas.offsetWidth - canvas.offsetLeft
 
-function mouseDownOnTextarea(e) {
-    var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
-    function drag(e) {
-        textarea.style.left = e.clientX + x + 'px'
-        textarea.style.top = e.clientY + y + 'px'
-        // if (e.clientY + y > maxX || e.clientX + x < 0) 
-        // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
-        // textarea.value = "x: " + x + " y: " + y;
+// function mouseDownOnTextarea(e) {
+//     var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
+//     function drag(e) {
+//         textarea.style.left = e.clientX + x + 'px'
+//         textarea.style.top = e.clientY + y + 'px'
+//         // if (e.clientY + y > maxX || e.clientX + x < 0) 
+//         // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
+//         // textarea.value = "x: " + x + " y: " + y;
 
-    }
-    function stopDrag() {
-        document.removeEventListener('mousemove', drag)
-        document.removeEventListener('mouseup', stopDrag)
-        // textarea.value = "x: " + x + " y: " + y
-    }
-    function getText() {
-        // let txt = this.value
-        console.log(this.value);
+//     }
+//     function stopDrag() {
+//         document.removeEventListener('mousemove', drag)
+//         document.removeEventListener('mouseup', stopDrag)
+//         // textarea.value = "x: " + x + " y: " + y
+//     }
+//     function getText() {
+//         // let txt = this.value
+//         console.log(this.value);
 
-    }
+//     }
 
-    document.addEventListener('mousemove', drag)
-    document.addEventListener('mouseup', stopDrag)
-    document.addEventListener('onkeydown', getText)
-}
+//     document.addEventListener('mousemove', drag)
+//     document.addEventListener('mouseup', stopDrag)
+//     document.addEventListener('onkeydown', getText)
+// }
 
-canvas.addEventListener('click', function (e) {
-    if (!textarea) {
-        textarea = document.createElement('input')
-        textarea.className = 'info'
-        // textarea.style.backgroundColor = (255,255,255,0.1)
-        textarea.addEventListener('mousedown', mouseDownOnTextarea)
-        elCanvasContainer.appendChild(textarea)
-    }
-    // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
-    // textarea.value = "x: " + x + " y: " + y
-    textarea.value = 'test'
-    textarea.style.top = e.clientY + 'px'
-    textarea.style.left = e.clientX + 'px'
-}, false)
+// canvas.addEventListener('click', function (e) {
+//     if (!textarea) {
+//         textarea = document.createElement('input')
+//         textarea.className = 'info'
+//         // textarea.style.backgroundColor = (255,255,255,0.1)
+//         textarea.addEventListener('mousedown', mouseDownOnTextarea)
+//         elCanvasContainer.appendChild(textarea)
+//     }
+//     // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
+//     // textarea.value = "x: " + x + " y: " + y
+//     textarea.value = 'test'
+//     textarea.style.top = e.clientY + 'px'
+//     textarea.style.left = e.clientX + 'px'
+// }, false)
