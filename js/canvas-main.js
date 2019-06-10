@@ -36,7 +36,9 @@ function creteMeme(txt = 'just a sample text', size = gDefaultFontSize, font = g
         txt: txt, size: size, font: font, align: align, color: color //, x: x, y:y
     }
 }
-function getfont(currFont) {
+
+
+function getFont(currFont) {
     gMemes[0].font = currFont
     gDefaultFont = currFont
 }
