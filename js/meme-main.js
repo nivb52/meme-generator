@@ -6,10 +6,21 @@ function init() {
     renderImgs(imgs)
 }
 
+let gCurrLang ='en'
 
-function onSelectLang(en){
+function onSelectLang(lang){
     console.log('select lang')
+    setLang(lang);
+    if (lang === 'he') document.body.classList.add('rtl');
+    else document.body.classList.remove('rtl');
+    doTrans();
 }
+
+
+
+
+
+
 
 
 

@@ -12,29 +12,28 @@
 </head>
 
 <body onload="init()">
-    <h1> Meme Creator </h1>
+    <h1 data-trans="title"> Meme Creator!</h1>
+    <select class="select-lang"  onchange="onSelectLang(this.value)">
+            <option >language</option>
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+        </select>
 
     <nav id="bt-menu" class="bt-menu bt-menu-close">
         <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
         <ul >
-            <!-- <li><a href="#" title="פתח תפריט"> </a></li> -->
+            <li><a href="#" title="פתח תפריט"> </a></li>
             <li><a class="simple-ajax-popup" href="about-us.html">about-us</a></li>
-            <!-- <li><a href="#" title="אין קישור"> </a></li> -->
-            <li class="language "><a href="">language</a>
-                <ul class="dropdown-menu" >
-                    <li onclick="onSelectLang(en)">English</li>
-                    <li onclick="onSelectLang(he)">עברית</li>
-                </ul>
-            </li>
+            <li><a href="#" title="אין קישור"> </a></li>
         </ul>
         <div class="bt-overlay"></div>
     </nav>
 
 
     <div class="searching">
-        <input type="text" class="search" name="search" placeholder="filter by keywords" list="keywords"
+        <input type="text" data-trans="searching" class="search" name="search" placeholder="filter by keywords" list="keywords"
             onkeydown="checkEnter(event)" />
-        <button onclick="onSearchByKeywords()">search</button>
+        <button data-trans="search" onclick="onSearchByKeywords()">search</button>
     </div>
 
     <div class="main-container">
@@ -44,8 +43,8 @@
         <div class="chen">
             <img src="img/creators/chen.jpg" alt="">
             <div>
-                <h2>Chen Mordechai</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quia assumenda minima magni
+                <h2 data-trans="chen">Chen Mordechai</h2>
+                <p data-trans="lorem-chen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quia assumenda minima magni
                     ad illum eum odio numquam, quaerat corporis, dolorum aut et reprehenderit cum dolorem adipisci, in
                     id?</p>
             </div>
@@ -53,8 +52,8 @@
         <div class="niv">
             <img src="img/creators/niv.png" alt="">
             <div>
-                <h2>Niv Bakelman</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum cupiditate quisquam
+                <h2 data-trans="niv">Niv Bakelman</h2>
+                <p data-trans="lorem-niv">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia atque, earum cupiditate quisquam
                     nihil dicta ipsum? Alias dolorem natus, fugiat quaerat iste molestiae nisi, debitis aliquid mollitia
                     tenetur exercitationem quae!</p>
             </div>
@@ -62,22 +61,22 @@
     </section>
 
     <section class="contact-us">
-        <h2>Get in touch</h2>
-        <h3>In order to get in touch use the contactform below</h3>
+        <h2 data-trans="contact">Get in touch</h2>
+        <h3 data-trans="p-contact">In order to get in touch use the contactform below</h3>
         <div class="email">
-            <p>Your E-mail</p>
+            <p data-trans="mail">Your E-mail</p>
             <input class="input-mail" type="text" placeholder="Name@example.com">
         </div>
         <div class="subject">
-            <p>Subject</p>
+            <p data-trans="sub">Subject</p>
             <input class="input-subject" type="text" placeholder="Type subject here">
         </div>
         <div class="text">
-            <p>Message body</p>
+            <p data-trans="msg">Message body</p>
             <input class="input-text" type="text" placeholder="Type message text here">
         </div>
 
-        <button type="button" onclick="onSubmit()" class="btn btn-primary">submit</button>
+        <button data-trans="submit" type="button" onclick="onSubmit()" class="btn btn-primary">submit</button>
     </section>
 
     </div>

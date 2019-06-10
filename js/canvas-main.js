@@ -6,7 +6,7 @@ let currElement = ''
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 const img = document.querySelector('#img-id')
-let gFontSize = '16px';
+let gFontSize = '30px';
 let gFont = 'Ariel'
 
 

@@ -99,6 +99,9 @@ video {
 body {
   /* background-color: #000; */
 }
+body.rtl {
+  direction: rtl;
+}
 
 h1 {
   margin: 0 auto;
@@ -346,24 +349,6 @@ font-size: 2rem;
 .contact-us .input-text{
   height: 100px;
   margin-bottom: 10px;
-}
-.dropdown-menu {
-  /* display: none; */
-}
-
-.dropdown-menu li {
-  text-align: center;
-  margin-left: 150px;
-  color: #c2c1c1;
-  background-color: #414040;
-  border-bottom: 1px solid black;
-  width: 132px;
-  height: 40px;
-  /* cursor: pointer; */
-}
-
-.language:hover .dropdown-menu  {
-  display: block;
 }
 
 
