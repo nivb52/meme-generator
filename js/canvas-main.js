@@ -28,7 +28,7 @@ function init() {
     }
 
     // TOP TXT - X,Y  canvas.width / 10, canvas.height - 50
-    gMemes.push(creteMeme(canvas.width / 10, canvas.height - 50))
+    gMemes.push(creteMeme(canvas.width / 10, canvas.height - 10))
 
     // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
     gMemes.push(creteMeme(canvas.width / 10,  canvas.height / 10))
@@ -95,8 +95,8 @@ function drawText() {
     ctx.strokeStyle = '#000000'  //gMemes[0].color //
     ctx.font = currFont //font-size + 'px' + ' ' + font-family
 
-    ctx.fillText(gMemes[0].txt, x, y);
-    ctx.strokeText(gMemes[0].txt, x, y);
+    ctx.fillText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
+    ctx.strokeText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
 }
 
 function getTextVal(el) {
