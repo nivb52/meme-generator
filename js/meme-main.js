@@ -1,13 +1,14 @@
 'use strict'
 
 
+
 function init() {
     var imgs = getImgs()
     renderImgs(imgs)
     renderKeyWord()
+    // updateGkeywords()
 }
 
-let gCurrLang ='en'
 
 function onSelectLang(lang){
     console.log('select lang')
@@ -82,10 +83,10 @@ function renderKeyWord(){
     var keywords = loadFromStorage('gKeywords')
     console.log('load from storage', keywords)
     for (var keyword in keywords) {
-        var fontSize = 18+ keywords[keyword]*2 
+        var fontSize = 15+ keywords[keyword]*2 
         console.log(fontSize,'fontsize')
         console.log(keyword)
-        strHtml += `<div onclick="searchByKeywords('${keyword}')" style="font-size: ${fontSize}px" class="keyword ${keyword}">${keyword}</div>`
+        strHtml += `<div onclick="searchByKeywords('${keyword}')" data-trans="${keyword}" style="font-size: ${fontSize}px" class="keyword ${keyword}">${keyword}</div>`
     }
 document.querySelector('.keyword-search').innerHTML =  strHtml
  

@@ -8,6 +8,8 @@ var gKeywords = {
     'child': 5
 }
 
+let gCurrLang ='en'
+
 
 
 function updateGkeywords(keyword) {
@@ -188,9 +190,21 @@ var gTrans = {
         en: 'Message body',
         he: 'גוף ההודעה'
     },
-    submit: {
-        en: 'submit',
-        he: 'שלח'
+    happy: {
+        en: 'happy',
+        he: 'שמח'
+    },man: {
+        en: 'man',
+        he: 'איש'
+    },woman: {
+        en: 'woman',
+        he: 'אישה'
+    },angry: {
+        en: 'angry',
+        he: 'כועס'
+    },child: {
+        en: 'child',
+        he: 'ילד'
     },
 
 

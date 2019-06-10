@@ -54,12 +54,14 @@
             <input onclick="getColor()" class="select-color" id="fill-color" type="color" value="#f9f9f9">
 
             <!-- font family -->
-            <select onchange="getfontSize(this.value)">
+            <select onchange="getfont(this.value)">
                 <option>font</option>
                 <option class="impact" value="impact"> Impact</option>
                 <option class="courier-New" value="courier-New">Courier-New</option>
                 <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
             </select>
+
+
 
             <!-- font size -->
             <input type="range" id="font-size" name="font-size" min="16" max="100" value="36"

@@ -17,6 +17,8 @@ let gFontSize = '36px';
 let gFont = 'Ariel'
 // canvas.style.backgroundImage = loadFromStorage('img')
 
+
+
 function init() {
     getAndCreateImg()
     elImg.onload = function () {
@@ -24,6 +26,14 @@ function init() {
         drawImg()
     }
 }
+
+function getfont(font){
+    console.log(font)
+    gFont = font
+}
+
+
+
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
         let imgUrl = loadFromStorage('img')
