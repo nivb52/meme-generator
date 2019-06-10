@@ -344,6 +344,7 @@ font-size: 2rem;
   border: 3px solid  #333;
   font-size: 0.9rem;
 }
+
 .contact-us .input-text{
   height: 100px;
   margin-bottom: 10px;
@@ -353,6 +354,15 @@ font-size: 2rem;
   margin-top: 20px;
   background-color: #8833aa;
   height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  /* flex-direction: column; */
+}
+.keyword{
+  font-family: 'Pacifico', cursive;
+  cursor: pointer;
 }
 
 @media (max-width:740px) {

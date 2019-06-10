@@ -4,6 +4,7 @@
 function init() {
     var imgs = getImgs()
     renderImgs(imgs)
+    renderKeyWord()
 }
 
 let gCurrLang ='en'
@@ -47,9 +48,15 @@ function checkEnter(ev) {
 function onSearchByKeywords() {
     let elSearch = document.querySelector('.search')
     let keyword = elSearch.value.toLowerCase()
+    // console.log(keyword)
+    updateGkeywords(keyword)
     renderImgs(searchByKeyword(keyword))
 }
-
+function searchByKeywords(keyword) {
+    // console.log(keyword)
+    updateGkeywords(keyword)
+    renderImgs(searchByKeyword(keyword))
+}
 
 
 
@@ -68,6 +75,21 @@ function renderImgs(imgs) {
     });
 
     document.querySelector('.main-container').innerHTML = htmlImg.join("")
+}
+
+function renderKeyWord(){
+    var strHtml=''
+    var keywords = loadFromStorage('gKeywords')
+    console.log('load from storage', keywords)
+    for (var keyword in keywords) {
+        var fontSize = 18+ keywords[keyword]*2 
+        console.log(fontSize,'fontsize')
+        console.log(keyword)
+        strHtml += `<div onclick="searchByKeywords('${keyword}')" style="font-size: ${fontSize}px" class="keyword ${keyword}">${keyword}</div>`
+    }
+document.querySelector('.keyword-search').innerHTML =  strHtml
+ 
+
 }
 
 

@@ -1,12 +1,42 @@
 'use strict'
 
+var gKeywords = {
+    'happy': 12,
+    'man': 1,
+    'woman': 3,
+    'angry': 8,
+    'child': 5
+}
 
-var gKeywords = {'happy': 12,'man': 1,'woman':3 ,'angry':8, 'child': 5}
+
+
+function updateGkeywords(keyword) {
+    // console.log(gKeywords)
+    // console.log(keyword)
+    for (var currKeyword in gKeywords) {
+        var keywordCount = gKeywords[currKeyword]
+        console.log('key/words', currKeyword)
+        if (currKeyword === keyword) {
+            keywordCount++
+            // console.log(keywordCount)
+            gKeywords[keyword]= keywordCount
+        
+        } else if(!gKeywords[keyword]){
+            // console.log('no')
+            gKeywords[keyword] = 1
+        }
+    }
+    // console.log(gKeywords)
+    saveToStorage('gKeywords', gKeywords) 
+    renderKeyWord()
+}
 
 
 
-
-
+// for (langName in langVotesMap) {
+//     var votesCount = langVotesMap[langName];
+//     console.log('Language: ' + langName + ' has: ' + votesCount + ' votes');
+// }
 
 
 var gImgs = [{
@@ -33,33 +63,31 @@ var gImgs = [{
     id: 6,
     url: '12.jpg',
     keywords: ['man']
-}
-    , {
+}, {
     id: 7,
     url: '003.jpg',
-    keywords: ['man']
+    keywords: ['man','angry']
 }, {
     id: 8,
     url: '004.jpg',
-    keywords: ['man']
+    keywords: ['happy','dog']
 }, {
     id: 9,
     url: '005.jpg',
-    keywords: ['man']
+    keywords: ['dog','child']
 }, {
     id: 10,
     url: '006.jpg',
-    keywords: ['man']
+    keywords: ['cat']
 }, {
     id: 11,
     url: 'img5.jpg',
-    keywords: ['man']
+    keywords: ['child','happy']
 }, {
     id: 12,
     url: 'leo.jpg',
-    keywords: ['man']
-}
-];
+    keywords: ['man','happy']
+}];
 
 
 function getImgs() {
@@ -82,12 +110,12 @@ function setLang(lang) {
 
 function doTrans() {
     var els = document.querySelectorAll('[data-trans]');
-    
+
     for (var i = 0; i < els.length; i++) {
         var el = els[i];
         // var transKey = el.getAttribute('data-trans');
         var transKey = el.dataset.trans;
-        
+
         var txt = getTrans(transKey);
 
         // Translating is actually complex and needs a library
@@ -164,7 +192,7 @@ var gTrans = {
         en: 'submit',
         he: 'שלח'
     },
-   
-   
+
+
 
 }

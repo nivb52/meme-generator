@@ -6,8 +6,7 @@ const canvas = document.querySelector('#my-canvas');
 const ctx = canvas.getContext('2d')
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
-let gFontSize = '30px';
-let gFont = 'Ariel'
+
 const elImg = document.querySelector('#img-id')
 const elCanvasContainer = document.querySelector('.canvas-container')
 
