@@ -17,7 +17,7 @@ function updateGkeywords(keyword) {
     // console.log(keyword)
     for (var currKeyword in gKeywords) {
         var keywordCount = gKeywords[currKeyword]
-        console.log('key/words', currKeyword)
+        console.log('keywords', currKeyword)
         if (currKeyword === keyword) {
             keywordCount++
             // console.log(keywordCount)

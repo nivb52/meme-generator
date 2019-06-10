@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d')
 const elTextTop = document.querySelector('#text-position-top')
 const elTextBottom = document.querySelector('#text-position-bottom')
 
-const elImg = document.querySelector('#img-id')
+let elImg = document.querySelector('#img-id')
 const elCanvasContainer = document.querySelector('.canvas-container')
 
 let CANVAS_WIDTH
@@ -81,6 +81,7 @@ function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
 
 function getTextVal(areaText) {
     let txt = areaText.value
+    
     if (areaText.name === 'bottom-text') {
         drawText(txt, canvas.width / 10, canvas.height - 50)
     } else if (areaText.name === 'top-text') {
@@ -201,4 +202,25 @@ function addProps(char, x, y) {
     // AFTER BUTTON IS CLICKED AND ITEM IS PICKED
     ctx.beginPath()
     ctx.strokeText(char, x, y)
+}
+
+function onFileInputChange(ev) {
+    handleImageFromInput(ev, drawImg)
+    
+}
+
+
+//UPLOAD IMG WITH INPUT FILE
+function handleImageFromInput(ev, onImageReady ) {
+    console.log(ev , onImageReady)
+    document.querySelector('#my-canvas').innerHTML = ''
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+        var img = new Image();
+        elImg =img
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(ev.target.files[0]);
 }
