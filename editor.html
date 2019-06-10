@@ -25,10 +25,10 @@
         <button onclick="drawImg()">IMG</button>
         <!-- Todo: share -->
         <!-- <button class="button">Share</button> -->
-        
+
         <input type="file" name="image" onchange="onFileInputChange(event)" />
 
-<a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
+        <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
         <a href="index.html">
             <button onclick="" class="button">Back to gallery</button>
         </a>
@@ -45,20 +45,31 @@
     </div>
 
     <div class="third-container">
+        <select id="mem-choose" onchange="onChangeMem()">
+            <option class="impact" value="0"> 1</option>
+            <option class="impact" value="1"> 2</option>
+
+        </select>
+
+        <button onclick="onAddMem()"><i class="fas fa-plus"></i></button>
+
         <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position-top" maxlength="35"
             onInput="onChangeTxt(this)" onkeydown="isDelete(event)" value=""></textarea>
 
-        <div class="button-container">
 
             <!--  buttons -->
-            <button><i class="fas fa-plus"></i></button>
-            <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
-            <input onclick="onChangeColor(this.value)" class="select-color" id="fill-color" type="color" value="#f9f9f9">
+        <div class="button-container">
+
+            <button onclick="deleteOneMem()" class="button"><i class="fas fa-trash-alt"></i></button>
+
+            <input onclick="onChangeColor(this.value)" class="select-color" id="fill-color" type="color"
+                value="#f9f9f9">
 
             <!-- font family -->
             <select onchange="getFont(this.value)">
                 <option>font</option>
-                <option class="impact" value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"> Impact</option>
+                <option class="impact" value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"> Impact
+                </option>
                 <option class="courier-New" value="'Courier New', Courier, monospace">Courier-New</option>
                 <option class="Pacifico" value="'Pacifico', cursive">Pacifico</option>
             </select>
@@ -74,29 +85,7 @@
             <button><i class="fas fa-align-right"></i></button>
         </div>
 
-        <textarea name="bottom-text" class="meme-fields meme-text-fields" id="text-position-bottom" maxlength="100"
-            onInput="getTextVal(this)" onkeydown="isDelete(event)" value=""></textarea>
-        <!--  buttons -->
-        <div class="button-container">
-            <button><i class="fas fa-plus"></i></button>
-            <button onclick="clearCanvas()" class="button"><i class="fas fa-trash-alt"></i></button>
-            <input onclick="onChangeColor(this.value)" class="select-color" id="fill-color" type="color" value="#f9f9f9">
 
-            <!-- font family -->
-            <select onchange="getFont(this.value)">
-                <option>font</option>
-                <option class="impact" value="impact"> Impact</option>
-                <option class="courier-New" value="courier-New">Courier-New</option>
-                <option class="segoe-UI" value="segoe-UI">Segoe-UI</option>
-            </select>
-            <!-- font size -->
-            <input type="range" id="font-size" name="font-size" min="16" max="100" value="16"
-                onchange="onSelectSize(this.value);" />
-            <span id="size">16</span>
-            <button><i class="fas fa-align-left"></i></button>
-            <button><i class="fas fa-align-justify"></i></button>
-            <button><i class="fas fa-align-right"></i></button>
-        </div>
     </div>
 
     </div>

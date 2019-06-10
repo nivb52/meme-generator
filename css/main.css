@@ -245,9 +245,11 @@ input.search {
 
 
 .select-color {
-  height: 30px;
+  height: 35px;
   background-color: #8833aa;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  width: 30px;
+  margin-right: 2px;
 }
 
 

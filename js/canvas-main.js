@@ -25,11 +25,13 @@ function init() {
     elImg.onload = function () {
         createCanvas()
         drawImg()
-        // TOP TXT - X,Y  canvas.width / 10, canvas.height - 50
-        gMemes.push(creteMeme(canvas.width / 10, canvas.height - 10))
-    
-        // BOTTOM TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
+
+        // TOP TXT - X,Y  x = canvas.width / 10, y = canvas.height / 10
         gMemes.push(creteMeme(canvas.width / 10, canvas.height / 10))
+
+        // BOTTOM TXT - X,Y  canvas.width / 10, canvas.height - 50
+        gMemes.push(creteMeme(canvas.width / 10, canvas.height - 10))
+
     }
 }
 
@@ -40,14 +42,6 @@ function creteMeme(x, y, txt = '', size = gDefaultFontSize, font = gDefaultFont,
         txt: txt, size: size, font: font, align: align, color: color
     }
 }
-
-
-function getFont(currFont) {
-    gMemes[0].font = currFont
-    gDefaultFont = currFont
-}
-
-
 
 function getAndCreateImg() {
     if (localStorage.getItem('img')) {
@@ -74,14 +68,22 @@ function drawImg() {
 
 function onSelectSize(currSize) {
     document.getElementById("size").innerHTML = currSize
-    // gFontSize = currSize 
-    gMemes[0].size = currSize
-    // updateFontSize(newVal)
+    let currMem = getMem()
+    gMemes[currMem].size = currSize
     return currSize
 }
 
+
+function getFont(currFont) {
+    let currMem = getMem()
+    gMemes[currMem].font = currFont
+    gDefaultFont = currFont
+    // elTextTop.classList.add(`${gDefaultFont}`)
+}
+
 function onChangeColor(currColor) {
-    gMemes[0].color = currColor
+    let currMem = getMem()
+    gMemes[currMem].color = currColor
     drawText()
 }
 
@@ -99,34 +101,22 @@ function drawText() {
         ctx.fillText(mem.txt, mem.x, mem.y);
         ctx.strokeText(mem.txt, mem.x, mem.y);
     })
-    // let currFont = gMemes[0].size + 'px ' + gMemes[0].font
-
-    // ctx.fillStyle = gMemes[0].color
-    // ctx.strokeStyle = '#000000'  //gMemes[0].color //
-    // ctx.font = currFont //font-size + 'px' + ' ' + font-family
-
-    // ctx.fillText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
-    // ctx.strokeText(gMemes[0].txt, gMemes[0].x, gMemes[0].y);
 }
 
 function getTextVal(el) {
-    let currTxtVal = el.value
+    let currTxtVal = el.value 
+    let currMem = getMem()
+    console.log(currMem);
 
-    if (el.name === 'bottom-text') {
-        gMemes[1].txt = currTxtVal
-        drawText(currTxtVal)
-    } else if (el.name === 'top-text') {
-        gMemes[0].txt = currTxtVal
-        drawText(currTxtVal)
-    } else return
+    gMemes[currMem].txt = currTxtVal
+
+    drawText(currTxtVal)
     ctx.save()
 }
 
-function onChangeTxt(el) {
+function onChangeTxt(el = elTextTop) {
     getTextVal(el)
-    console.log('changed');
     drawText()
-
 }
 
 
@@ -147,13 +137,48 @@ function isDelete(ev) {
 }
 
 function deleteOneChar() {
-    clearCanvas()
+    let currMem = getMem()
+    gMemes[currMem].txt = elTextTop.value
+    // drawText()
+
+}
+
+function deleteOneMem(){
+    let currMem = getMem()
+    gMemes[currMem].txt = ''
+    drawText()
 }
 
 function clearCanvas() {
     //IMG IS MUST, IF NOT USER CAN GO BACK TO GALLERY
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawImg()
+}
+
+function onChangeMem() {
+    getMem()
+    elTextTop.value = gMemes[getMem()].txt
+    elTextTop.classList.add(`${gDefaultFont}`)
+}
+
+function getMem() {
+    let memIdx = document.querySelector('#mem-choose').value
+    return +memIdx
+}
+
+function addMem() {
+    gMemes.push(creteMeme(CANVAS_WIDTH / 2 , CANVAS_HEIGHT / 2 ) )
+    gMemes[gMemes.length - 1].txt = elTextTop.value ? elTextTop.value : 'Type Here'
+}
+
+function onAddMem() {
+    addMem()
+    let currSelectors = document.querySelector('#mem-choose').innerHTML
+    let HTMLSelectors = `<option class="${gDefaultFont}" value="${gMemes.length-1}"> ${gMemes.length}</option>`
+    
+    let elSelcetMem = document.querySelector('#mem-choose')
+    elSelcetMem.innerHTML = currSelectors + HTMLSelectors   //.appendChild()
+
 }
 
 function downloadCanvas(elLink) {
