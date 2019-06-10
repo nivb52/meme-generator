@@ -120,7 +120,7 @@ a {
 }
 
 button {
-  margin: 0 0.5rem;
+  margin: 0.5rem 0.5rem;
   padding: 1em;
   border: solid 1px transparent;
   border-radius: 4px;
@@ -182,7 +182,7 @@ img {
 
 
 
-.third-container {
+.aditor-container {
   /* width: 50%; */
   display: flex;
   align-items: center;
@@ -369,8 +369,15 @@ font-size: 2rem;
   font-family: 'Pacifico', cursive;
   cursor: pointer;
 }
+.uploud{
+  width: 180px;
+}
+.publish{
+  background-color: rgb(21, 21, 168)
+}
 
 @media (max-width:740px) {
+  
   .about-us {
     flex-wrap: wrap;
     height: 380px;
@@ -390,10 +397,11 @@ font-size: 2rem;
   }
 
   canvas {
-    width: 100%;
+    width: 90%;
+    height: 90%;
   }
 
-  .third-container {
+  .aditor-container {
     width: 100%;
   }
 
@@ -404,6 +412,8 @@ font-size: 2rem;
     height: 100px;
     width: 100px;
     
-    
   }
+ body{
+   margin: 0;
+ }
 }

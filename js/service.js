@@ -1,6 +1,7 @@
 'use strict'
+let gCurrLang = 'en'
 
-var gKeywords = {
+let gKeywords = {
     'happy': 12,
     'man': 1,
     'woman': 3,
@@ -8,13 +9,10 @@ var gKeywords = {
     'child': 5
 }
 
-let gCurrLang ='en'
-
 
 
 function updateGkeywords(keyword) {
-    // console.log(gKeywords)
-    // console.log(keyword)
+
     for (var currKeyword in gKeywords) {
         var keywordCount = gKeywords[currKeyword]
         console.log('keywords', currKeyword)
