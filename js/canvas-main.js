@@ -13,9 +13,8 @@ const elCanvasContainer = document.querySelector('.canvas-container')
 let CANVAS_WIDTH
 let CANVAS_HEIGHT
 
-let gId = 0
-let gFontSize = '36px';
-let gFont = 'Ariel'
+let gDefaultFontSize = '36';
+let gDefaultFont = 'Ariel'
 // canvas.style.backgroundImage = loadFromStorage('img')
 
 
@@ -26,17 +25,19 @@ function init() {
         createCanvas()
         drawImg()
     }
+    gMemes.push(creteMeme())
+    gMemes.push(creteMeme())
 }
 
 
-function creteMeme(txt = 'just a sample text', size = '20px', align = 'left', color = 'red') {
+function creteMeme(txt = 'just a sample text', size = gDefaultFontSize, font = gDefaultFont, align = 'left', color = 'red') {
     return {
-        id: gId++ ,line: txt, size: size, align: align, color: color //getColor() //, x: x, y:y
+        txt: txt, size: size, font: font, align: align, color: color //, x: x, y:y
     }
 }
-function getfont(font){
-    console.log(font)
-    gFont = font
+function getfont(currFont) {
+    gMemes[0].font = currFont
+    gDefaultFont = currFont
 }
 
 
@@ -64,11 +65,12 @@ function drawImg() {
     ctx.drawImage(elImg, 0, 0, canvas.width, canvas.height)
 }
 
-function onSelectSize(newVal) {
-    document.getElementById("size").innerHTML = newVal
-    gFontSize = newVal + 'px'
+function onSelectSize(currSize) {
+    document.getElementById("size").innerHTML = currSize
+    // gFontSize = currSize 
+    gMemes[0].size = currSize
     // updateFontSize(newVal)
-    return newVal
+    return currSize
 }
 
 function getColor() {
@@ -76,28 +78,35 @@ function getColor() {
     return fillColor
 }
 
-function drawText(txt, x = canvas.width / 10, y = canvas.height / 10) {
+function drawText(x = canvas.width / 10, y = canvas.height / 10) {
     clearCanvas()
     ctx.fillStyle = getColor()
     ctx.strokeStyle = getColor() //'#000000' 
-    ctx.font = gFontSize + ' ' + gFont
-    // let txt = getTextVal()
-    ctx.fillText(txt, x, y);
-    ctx.strokeText(txt, x, y);
+    let currFont = gMemes[0].size + 'px ' + gMemes[0].font
+    ctx.font = currFont //gFontSize + 'px' + ' ' + gFont
+    console.log(currFont);
+    ctx.fillText(gMemes[0].txt, x, y);
+    ctx.strokeText(gMemes[0].txt, x, y);
 }
 
-function getTextVal(areaText) {
-    let txt = areaText.value
-    
-    if (areaText.name === 'bottom-text') {
-        gMemes[0] = creteMeme(txt)
-        drawText(txt, canvas.width / 10, canvas.height - 50)
-    } else if (areaText.name === 'top-text') {
-        gMemes[1] = creteMeme(txt)
-        drawText(txt)
-    } else return
+function getTextVal(el) {
+    let currTxtVal = el.value
 
+    if (el.name === 'bottom-text') {
+        gMemes[1].txt = currTxtVal
+        drawText(currTxtVal, canvas.width / 10, canvas.height - 50)
+    } else if (el.name === 'top-text') {
+        gMemes[0].txt = currTxtVal
+        drawText(currTxtVal)
+    } else return
     ctx.save()
+}
+
+function onChangeTxt(el) {
+    getTextVal(el)
+    console.log('changed');
+    drawText()
+
 }
 
 
@@ -137,53 +146,6 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
-
-
-let textarea
-const maxX = canvas.offsetWidth - canvas.offsetLeft
-
-function mouseDownOnTextarea(e) {
-    var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
-    function drag(e) {
-        textarea.style.left = e.clientX + x + 'px'
-        textarea.style.top = e.clientY + y + 'px'
-        // if (e.clientY + y > maxX || e.clientX + x < 0) 
-        // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
-        // textarea.value = "x: " + x + " y: " + y;
-
-    }
-    function stopDrag() {
-        document.removeEventListener('mousemove', drag)
-        document.removeEventListener('mouseup', stopDrag)
-        // textarea.value = "x: " + x + " y: " + y
-    }
-    function getText() {
-        // let txt = this.value
-        console.log(this.value);
-        
-    }
-
-    document.addEventListener('mousemove', drag)
-    document.addEventListener('mouseup', stopDrag)
-    document.addEventListener('onkeydown', getText)
-}
-
-canvas.addEventListener('click', function (e) {
-    if (!textarea) {
-        textarea = document.createElement('input')
-        textarea.className = 'info'
-        // textarea.style.backgroundColor = (255,255,255,0.1)
-        textarea.addEventListener('mousedown', mouseDownOnTextarea)
-        elCanvasContainer.appendChild(textarea)
-    }
-    // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
-    // textarea.value = "x: " + x + " y: " + y
-    textarea.value = 'test' 
-    textarea.style.top = e.clientY + 'px'
-    textarea.style.left = e.clientX + 'px'
-}, false)
-
-
 function drawLine(x, y) {
     ctx.beginPath()
     ctx.lineTo(x, y)
@@ -208,7 +170,7 @@ function draw(ev) {
     switch (currElement) {
         case 'line':
             ev = 0; // 1 line for each press
-            drawLine(offsetX, offsetY)
+            consol(offsetX, offsetY)
             break;
         default:
             return
@@ -224,21 +186,67 @@ function addProps(char, x, y) {
 
 function onFileInputChange(ev) {
     handleImageFromInput(ev, drawImg)
-    
+
 }
 
 
 //UPLOAD IMG WITH INPUT FILE
-function handleImageFromInput(ev, onImageReady ) {
-    console.log(ev , onImageReady)
+function handleImageFromInput(ev, onImageReady) {
+    console.log(ev, onImageReady)
     document.querySelector('#my-canvas').innerHTML = ''
     var reader = new FileReader();
 
     reader.onload = function (event) {
         var img = new Image();
-        elImg =img
+        elImg = img
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result;
     }
     reader.readAsDataURL(ev.target.files[0]);
 }
+
+
+
+let textarea
+const maxX = canvas.offsetWidth - canvas.offsetLeft
+
+function mouseDownOnTextarea(e) {
+    var x = textarea.offsetLeft - e.clientX, y = textarea.offsetTop - e.clientY
+    function drag(e) {
+        textarea.style.left = e.clientX + x + 'px'
+        textarea.style.top = e.clientY + y + 'px'
+        // if (e.clientY + y > maxX || e.clientX + x < 0) 
+        // if (e.clientY + y > CANVAS_HEIGHT || e.clientY + y < 0) return
+        // textarea.value = "x: " + x + " y: " + y;
+
+    }
+    function stopDrag() {
+        document.removeEventListener('mousemove', drag)
+        document.removeEventListener('mouseup', stopDrag)
+        // textarea.value = "x: " + x + " y: " + y
+    }
+    function getText() {
+        // let txt = this.value
+        console.log(this.value);
+
+    }
+
+    document.addEventListener('mousemove', drag)
+    document.addEventListener('mouseup', stopDrag)
+    document.addEventListener('onkeydown', getText)
+}
+
+canvas.addEventListener('click', function (e) {
+    if (!textarea) {
+        textarea = document.createElement('input')
+        textarea.className = 'info'
+        // textarea.style.backgroundColor = (255,255,255,0.1)
+        textarea.addEventListener('mousedown', mouseDownOnTextarea)
+        elCanvasContainer.appendChild(textarea)
+    }
+    // var x = e.clientX - canvas.offsetLeft,  y = e.clientY - canvas.offsetTop
+    // textarea.value = "x: " + x + " y: " + y
+    textarea.value = 'test'
+    textarea.style.top = e.clientY + 'px'
+    textarea.style.left = e.clientX + 'px'
+}, false)
