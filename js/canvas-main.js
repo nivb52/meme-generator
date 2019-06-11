@@ -57,7 +57,7 @@ function getAndCreateImg() {
 
 function createCanvas() {
     CANVAS_WIDTH = Math.min(vw(), document.querySelector('#img-id').naturalWidth)
-    CANVAS_HEIGHT = Math.min(vh(), document.querySelector('#img-id').naturalHeight)
+    CANVAS_HEIGHT = Math.min(vh(), document.querySelector('#img-id').naturalHeight) - 20;
     canvas.width = CANVAS_WIDTH
     canvas.height = CANVAS_HEIGHT
     canvas.style.marginLeft = 'auto' // Center the Canvas
@@ -172,7 +172,7 @@ function onChangeMem() {
     let idx = getMem()
     elTextArea.value = gMemes[getMem()].txt
     elTextArea.classList.add(`${gDefaultFont}`)
-    
+
     document.querySelector('#fill-color').value = gMemes[idx].color || "#f9f9f9"
 }
 
