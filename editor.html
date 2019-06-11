@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/btn-menu.css" />
+
     <style>
         .info {
             position: absolute;
@@ -19,6 +21,24 @@
 
 <body onload="init()">
     <h1> Meme Rush </h1>
+
+    <nav id="bt-menu" class="bt-menu bt-menu-close">
+            <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+            <ul>
+                <li><a href="#" title="פתח תפריט"> </a></li>
+                <li><a class="simple-ajax-popup" href="about-us.html">about-us</a></li>
+                <li>
+                    <select class="select-lang" onchange="onSelectLang(this.value)">
+                        <option>language</option>
+                        <option value="en">English</option>
+                        <option value="he">עברית</option>
+                    </select>
+                </li>
+                <li><a href="#" title="אין קישור"> </a></li>
+            </ul>
+            <div class="bt-overlay"></div>
+        </nav>
+    
     <div class="canvas-container">
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
@@ -99,6 +119,7 @@
 
 
     <script src="js/util.js"></script>
+    <script src="lib/borderMenu.js"></script>
     <script src="js/canvas-main.js"></script>
 </body>
 
