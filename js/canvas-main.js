@@ -237,7 +237,7 @@ function findTouchedMem(ev) {
 
 function moveTouchedMem(ev) {
     const { offsetX, offsetY } = ev
-    if (gTouchedIdx || gTouchedIdx === 0  ) {
+    if (gTouchedIdx || gTouchedIdx === 0) {
 
         gMemes[gTouchedIdx].x = offsetX
         gMemes[gTouchedIdx].y = offsetY
@@ -245,7 +245,7 @@ function moveTouchedMem(ev) {
     }
 }
 
-function onStopMovingMem(){
+function onStopMovingMem() {
     gTouchedIdx = null
 }
 
@@ -279,7 +279,6 @@ function handleImageFromInput(ev, onImageReady) {
 
 
 
-
 function uploadImg(elForm, ev) {
     ev.preventDefault();
 
@@ -301,7 +300,7 @@ function uploadImg(elForm, ev) {
 function doUploadImg(elForm, onSuccess) {
     var formData = new FormData(elForm);
 
-    fetch('http://ca-upload.com/here/upload.php', {
+    fetch('https://ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })

@@ -58,7 +58,7 @@
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
 
-        <canvas onmousedown="findTouchedMem(event)" onmousemove="moveTouchedMem(event)" onmouseup="onStopMovingMem()" onclick="findTouchedMem(event)" width="50" id="my-canvas" height="50" style="cursor: grab ;">
+        <canvas onmousedown="findTouchedMem(event)" onmousemove="moveTouchedMem(event)" ontouchmove="moveTouchedMem(event)" ontouchend="onStopMovingMem()" onmouseup="onStopMovingMem()" onclick="findTouchedMem(event)" touchstart="findTouchedMem(event)" width="50" id="my-canvas" height="50" style="cursor: grab ;">
             Update your browser to enjoy canvas!
         </canvas>
     </div>
