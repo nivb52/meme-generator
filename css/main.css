@@ -312,6 +312,8 @@ input.search {
   padding: 0 20px 0 23px;
   margin: 0 10px 10px 0;
   text-decoration: none;
+  display: inline-block;
+  position: relative;
   transition: color 0.2s;
   -webkit-transition: color 0.2s;
 }

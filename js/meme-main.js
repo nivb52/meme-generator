@@ -30,6 +30,7 @@ function onSubmit(){
 
 
 function onLoadTag(folder) {
+    folder = folder.dataset.loc
     let imgs = loadTag({folder: folder, keywords: ['The 80s TV','80s']})
     renderImgs(imgs)
     renderKeyWord()
@@ -82,11 +83,8 @@ function renderImgs(imgs) {
 function renderKeyWord(){
     var strHtml=''
     var keywords = loadFromStorage('gKeywords')
-    console.log('load from storage', keywords)
     for (var keyword in keywords) {
         var fontSize = 15+ keywords[keyword]*2 
-        console.log(fontSize,'fontsize')
-        console.log(keyword)
         strHtml += `<div onclick="searchByKeywords('${keyword}')" data-trans="${keyword}" style="font-size: ${fontSize}px" class="keyword ${keyword}">${keyword}</div>`
     }
 document.querySelector('.keyword-search').innerHTML =  strHtml
