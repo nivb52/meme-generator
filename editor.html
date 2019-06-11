@@ -29,16 +29,20 @@
     </div>
 
     <div class="editor-container">
-        <select id="mem-choose" onchange="onChangeMem()">
-            <option class="impact" value="0"> 1</option>
-            <option class="impact" value="1"> 2</option>
+        <div class="text-container">
+            <select id="mem-choose" onchange="onChangeMem()">
+                <option class="impact" value="0"> 1</option>
+                <option class="impact" value="1"> 2</option>
+    
+            </select>
+    
+            <button onclick="onAddMem()"><i class="fas fa-plus"></i></button>
+    
+            <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position" maxlength="35"
+                onInput="onChangeTxt(this)" onkeydown="isDelete(event)" value="" placeholder="type here" autofocus style="max-width: 90%; min-height: 1rem; max-height: 3rem;"></textarea>
 
-        </select>
+        </div>
 
-        <button onclick="onAddMem()"><i class="fas fa-plus"></i></button>
-
-        <textarea name="top-text" class="meme-fields meme-text-fields" id="text-position" maxlength="35"
-            onInput="onChangeTxt(this)" onkeydown="isDelete(event)" value="" placeholder="type here" autofocus style="max-width: 90%; min-height: 1rem; max-height: 3rem;"></textarea>
 
 
             <!--  buttons -->
