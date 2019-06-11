@@ -343,6 +343,11 @@ font-size: 2rem;
   padding-top: 7px;
 
 }
+.text-container{
+  display: flex;
+    align-items: center;
+
+}
 
 .contact-us input{
   width: 370px;
@@ -407,6 +412,7 @@ font-size: 2rem;
   .editor-container {
     flex-wrap: wrap;
     width: 100%;
+    margin-bottom: -50px;
   }
 
   img {
@@ -421,6 +427,28 @@ font-size: 2rem;
    margin: 0;
  }
  .meme-fields.meme-text-fields {
+  height: 45px;
+  width: 200px;
+ }
+
+ button {
   
-  width: 400px;
+  margin: 0.5rem 0.5rem;
+  /* padding: 1em; */
+  border: solid 1px transparent;
+  /* border-radius: 4px; */
+  padding: 0.5em 1em;
+  color: #ffffff;
+  background-color: #8833aa;
+  outline: none;
+  font-family: cursive;
+}
+.button-container{
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+}
+
 }
