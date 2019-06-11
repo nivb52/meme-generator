@@ -19,15 +19,15 @@ function updateGkeywords(keyword) {
         if (currKeyword === keyword) {
             keywordCount++
             // console.log(keywordCount)
-            gKeywords[keyword]= keywordCount
-        
-        } else if(!gKeywords[keyword]){
+            gKeywords[keyword] = keywordCount
+
+        } else if (!gKeywords[keyword]) {
             // console.log('no')
             gKeywords[keyword] = 1
         }
     }
     // console.log(gKeywords)
-    saveToStorage('gKeywords', gKeywords) 
+    saveToStorage('gKeywords', gKeywords)
     renderKeyWord()
 }
 
@@ -60,15 +60,15 @@ var gImgs = [{
 }, {
     id: 7,
     url: '003.jpg',
-    keywords: ['man','angry']
+    keywords: ['man', 'angry']
 }, {
     id: 8,
     url: '004.jpg',
-    keywords: ['happy','dog']
+    keywords: ['happy', 'dog']
 }, {
     id: 9,
     url: '005.jpg',
-    keywords: ['dog','child']
+    keywords: ['dog', 'child']
 }, {
     id: 10,
     url: '006.jpg',
@@ -76,11 +76,11 @@ var gImgs = [{
 }, {
     id: 11,
     url: 'img5.jpg',
-    keywords: ['child','happy']
+    keywords: ['child', 'happy']
 }, {
     id: 12,
     url: 'leo.jpg',
-    keywords: ['man','happy']
+    keywords: ['man', 'happy']
 }];
 
 
@@ -150,10 +150,10 @@ var gTrans = {
         en: 'Chen Mordechai',
         he: 'חן מרדכי'
     },
-    // 'lorem-chen': {
-    //     en: 'language',
-    //     he: 'שפה'
-    // },
+    'load-80s': {
+        en: ` load "The Years of 80's" `,
+        he: 'טען את שנות ה-80'
+    },
     niv: {
         en: 'Niv Bakelmane',
         he: 'ניב בקלמן'
@@ -185,20 +185,45 @@ var gTrans = {
     happy: {
         en: 'happy',
         he: 'שמח'
-    },man: {
+    }, man: {
         en: 'man',
         he: 'איש'
-    },woman: {
+    }, woman: {
         en: 'woman',
         he: 'אישה'
-    },angry: {
+    }, angry: {
         en: 'angry',
         he: 'כועס'
-    },child: {
+    }, child: {
         en: 'child',
         he: 'ילד'
     },
 
 
 
+}
+
+
+function loadTag(loadData) {
+    const { folder, keywords } = loadData
+    let imgs = []
+    // HERE WE CAN DEFINE THE IMG COUNT OF ANY FOLDER
+    if (folder === '80') { var count = 7 }
+
+    count++
+    for ( count > 1; count--;) {
+        let id = count
+        let url = folder + '/' + folder + '-0' + id + '.jpeg'
+        console.log(url);
+        imgs.push(createImg(id, url, keywords))
+    }
+    return imgs
+}
+
+function createImg(id, url, keywords) {
+    return {
+        id: id++,
+        url: url,
+        keywords: keywords
+    }
 }

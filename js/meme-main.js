@@ -29,6 +29,13 @@ function onSubmit(){
 }
 
 
+function onLoadTag(folder) {
+    let imgs = loadTag({folder: folder, keywords: ['The 80s TV','80s']})
+    renderImgs(imgs)
+    renderKeyWord()
+
+}
+
 
 
 
