@@ -208,15 +208,16 @@ function loadTag(loadData) {
     const { folder, keywords } = loadData
     let imgs = []
     // HERE WE CAN DEFINE THE IMG COUNT OF ANY FOLDER
+    
     if (folder === '80') { var count = 7 }
-
+    
     count++
-    for ( count > 1; count--;) {
+    for ( count > 1 ; --count ;) {
         let id = count
         let url = folder + '/' + folder + '-0' + id + '.jpeg'
-        console.log(url);
         imgs.push(createImg(id, url, keywords))
     }
+    
     return imgs
 }
 
