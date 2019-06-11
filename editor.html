@@ -38,7 +38,22 @@
             </ul>
             <div class="bt-overlay"></div>
         </nav>
+        <div class="main-container">
+            <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                <input name="img" id="imgData" type="hidden" />
+                <button class="publish" type="submit">share</button>
+            </form>
     
+            <button class="uploud"> <input type="file" name="image" onchange="onFileInputChange(event)" /></button>
+    
+    
+    
+            <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
+            <a href="index.html">
+                <button onclick="" class="button">Back to gallery</button>
+            </a>
+        </div>
+        
     <div class="canvas-container">
         <!-- canvas -->
         <!-- <div class="canvas-container"> -->
@@ -95,21 +110,6 @@
     </div>
 
 
-    <div class="main-container">
-        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
-            <input name="img" id="imgData" type="hidden" />
-            <button class="publish" type="submit">share</button>
-        </form>
-
-        <button class="uploud"> <input type="file" name="image" onchange="onFileInputChange(event)" /></button>
-
-
-
-        <a href="#" onclick="downloadCanvas(this)" download="" class="button"><button>Download</button></a>
-        <a href="index.html">
-            <button onclick="" class="button">Back to gallery</button>
-        </a>
-    </div>
 
     </div>
     <div>
