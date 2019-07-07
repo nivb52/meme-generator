@@ -6,11 +6,11 @@ function init() {
     var imgs = getImgs()
     renderImgs(imgs)
     renderKeyWord()
-    // updateGkeywords()
+    updateGkeywords()
 }
 
 
-function onSelectLang(lang){
+function onSelectLang(lang) {
     console.log('select lang')
     setLang(lang);
     if (lang === 'he') document.body.classList.add('rtl');
@@ -19,11 +19,11 @@ function onSelectLang(lang){
 }
 
 
-function onSubmit(){
+function onSubmit() {
     // var email = $('.input-mail').val()
     var subject = document.querySelector('.input-subject').value
     var message = document.querySelector('.input-text').value
-    // console.log(email , subject , message)
+        // console.log(email , subject , message)
     window.open(`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=chen100030@gmail.com.com&su=${subject}&body=${message}&.com&tf=1`)
 
 }
@@ -31,7 +31,7 @@ function onSubmit(){
 
 function onLoadTag(folder) {
     folder = folder.dataset.loc
-    let imgs = loadTag({folder: folder, keywords: ['The 80s TV','80s']})
+    let imgs = loadTag({ folder: folder, keywords: ['The 80s TV', '80s'] })
     renderImgs(imgs)
     renderKeyWord()
 
@@ -51,10 +51,11 @@ function checkEnter(ev) {
 function onSearchByKeywords() {
     let elSearch = document.querySelector('.search')
     let keyword = elSearch.value.toLowerCase()
-    // console.log(keyword)
+        // console.log(keyword)
     updateGkeywords(keyword)
     renderImgs(searchByKeyword(keyword))
 }
+
 function searchByKeywords(keyword) {
     // console.log(keyword)
     updateGkeywords(keyword)
@@ -71,7 +72,7 @@ function onImgClicked(imgUrl) {
 }
 
 function renderImgs(imgs) {
-    var htmlImg = imgs.map(function (img) {
+    var htmlImg = imgs.map(function(img) {
         return `<div  class="img img-${img.id} data">
         <img  onclick="onImgClicked('${img.url}')" src="img/${img.url}" />
     </div>`
@@ -80,16 +81,14 @@ function renderImgs(imgs) {
     document.querySelector('.main-container').innerHTML = htmlImg.join("")
 }
 
-function renderKeyWord(){
-    var strHtml=''
+function renderKeyWord() {
+    var strHtml = ''
     var keywords = loadFromStorage('gKeywords')
     for (var keyword in keywords) {
-        var fontSize = 15+ keywords[keyword]*2 
+        var fontSize = 15 + keywords[keyword] * 2
         strHtml += `<div onclick="searchByKeywords('${keyword}')" data-trans="${keyword}" style="font-size: ${fontSize}px" class="keyword ${keyword}">${keyword}</div>`
     }
-document.querySelector('.keyword-search').innerHTML =  strHtml
- 
+    document.querySelector('.keyword-search').innerHTML = strHtml
+
 
 }
-
-
